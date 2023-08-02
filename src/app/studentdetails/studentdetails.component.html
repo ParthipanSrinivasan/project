@@ -75,47 +75,12 @@
               <ng-container matColumnDef='action'>
                 <th mat-header-cell *matHeaderCellDef> Edit </th>
                 <td mat-cell *matCellDef="let row">
-                  <button mat-icon-button color="warn" (click)="open(content,row)"> <mat-icon>edit</mat-icon> </button>
+                  <button mat-icon-button color="warn" [routerLink]="['/edit/'+row.id]"> <mat-icon>edit</mat-icon> </button>
                 </td>
               </ng-container >
               <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
                 <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
         </table>
-        <ng-template #content>
-          <form [formGroup]="update" (ngSubmit)="onUpdate()">
-           <div mat-dialog-title>
-            <h1 > Student Edit</h1>
-         </div>
-         <div mat-dialog-content>
-         <label for="">FirstName</label>
-         <input type="text" class="form-control" formControlName="firstname" name="firstname">
-         </div>
-         <div mat-dialog-content>
-         <label for="">LastName</label>
-         <input type="text" class="form-control" formControlName="lastname" name="lastname">
-         </div>
-         <div mat-dialog-content>
-          <label for="">Subject</label>
-          <input type="text" class="form-control" formControlName="sub" name="sub">
-          </div>
-          <div mat-dialog-content>
-            <label for="">Age</label>
-            <input type="text" class="form-control" formControlName="age" name="age">
-            </div>
-            <div mat-dialog-content>
-              <label for="">Class</label>
-              <input type="text" class="form-control" formControlName="class" name="class">
-            </div>
-            <div mat-dialog-content>
-              <label for="">Phone</label>
-              <input type="text" class="form-control" formControlName="phone" name="phone">
-            </div>
-         <div mat-dialog-actions>
-         <button mat-button mat-dialog-close type="submit" class="btn btn-outline-primary" >Ok</button>
-         <button mat-button mat-dialog-close class="btn btn-outline-danger">close</button>
-         </div>
-          </form>
-         </ng-template>
         </div>
       </div>
     </div>

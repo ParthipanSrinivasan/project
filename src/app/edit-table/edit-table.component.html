@@ -1,0 +1,35 @@
+<ng-template #content>
+    <form [formGroup]="update" (ngSubmit)="onUpdate()">
+     <div mat-dialog-title>
+      <h1 > Student Edit</h1>
+   </div>
+   <div mat-dialog-content>
+   <label for="">FirstName</label>
+   <input type="text" class="form-control" formControlName="firstname" name="firstname">
+   </div>
+   <div mat-dialog-content>
+   <label for="">LastName</label>
+   <input type="text" class="form-control" formControlName="lastname" name="lastname">
+   </div>
+   <div mat-dialog-content>
+    <label for="">Subject</label>
+    <input type="text" class="form-control" formControlName="sub" name="sub">
+    </div>
+    <div mat-dialog-content>
+      <label for="">Age</label>
+      <input type="text" class="form-control" formControlName="age" name="age">
+      </div>
+      <div mat-dialog-content>
+        <label for="">Class</label>
+        <input type="text" class="form-control" formControlName="class" name="class">
+      </div>
+      <div mat-dialog-content>
+        <label for="">Phone</label>
+        <input type="text" class="form-control" formControlName="phone" name="phone">
+      </div>
+   <div mat-dialog-actions>
+   <button mat-button mat-dialog-close type="submit" class="btn btn-outline-primary" >Ok</button>
+   <button mat-button mat-dialog-close class="btn btn-outline-danger">close</button>
+   </div>
+    </form>
+   </ng-template>
