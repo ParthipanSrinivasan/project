@@ -4,6 +4,7 @@ import { FormControl, FormGroup } from '@angular/forms';
 import { Validators } from '@angular/forms';
 import { first } from 'rxjs'; 
 import { MatDialog } from '@angular/material/dialog';
+import { EditTableComponent } from '../edit-table/edit-table.component';
 
 @Component({
   selector: 'app-studentdetails',
@@ -33,10 +34,11 @@ export class StudentdetailsComponent {
     return;
    }
   }
-  open(content:any,row:any){
-    this.matDialog.open(content,{height: '95%',
-    width: '50%'});
-    
+  open(row:any){
+    this.matDialog.open(EditTableComponent,{height: '95%',
+    width:'50%',data:{firstname:row.firstname,lastname:row.lastname,age:row.age,sub:row.sub,class:row.class,phone:row.phone}},
+    );
+    console.log(row);
   }
   
   tableList(){

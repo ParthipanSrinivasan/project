@@ -44,9 +44,5 @@ export class EditTableComponent implements OnInit{
       
     })
   }
-  open(content:any){
-    this.matDialog.open(content,{height: '95%',
-    width: '50%'});
-    
-  }
+ 
 }
