@@ -44,22 +44,21 @@ export class HeroService {
     })
     return obser;
   }
-  studentEdit(value:any){
+  dialogComponent(dialog:any){
     const obser=new Observable((val)=>{
-      const elemen=this.studentrec.find((val:any)=>(val.id==value))
+      const elemen=this.studentrec.find((val:any)=>(val.id==dialog))
       if(elemen){
         val.next(elemen);
         val.complete();
       }
       else{
-        val.error({error:"no records find"})
+        val.next({error:'no record find'});
         val.complete();
       }
     })
     return obser;
   }
   studentEditSave(editvalue:any){
-    console.log(this.studentrec)
     const obser=new Observable((val)=>{
       const elemen=this.studentrec.find((val:any)=>(val.id==editvalue.id));
         if(elemen){     
@@ -69,7 +68,7 @@ export class HeroService {
           elemen["sub"]=editvalue.sub
           elemen["class"]=editvalue.class
           elemen["phone"]=editvalue.phone
-          val.next(this.studentrec);
+          val.next(elemen);
           val.complete();
         }
         else{

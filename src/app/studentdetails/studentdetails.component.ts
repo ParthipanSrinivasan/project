@@ -22,7 +22,6 @@ export class StudentdetailsComponent {
   class:new FormControl(''),
   phone:new FormControl(''),
   });
-  
   displayedColumns: string[] = ["id","firstname","lastname","age","sub","class","phone",'action'];
   dataSource:any;
   studentSaved(){
@@ -36,11 +35,9 @@ export class StudentdetailsComponent {
   }
   open(row:any){
     this.matDialog.open(EditTableComponent,{height: '95%',
-    width:'50%',data:{firstname:row.firstname,lastname:row.lastname,age:row.age,sub:row.sub,class:row.class,phone:row.phone}},
+    width:'50%',data:row.id},
     );
-    console.log(row);
   }
-  
   tableList(){
   this.heroservive.tableList().subscribe((value)=>{
     this.dataSource=value;
