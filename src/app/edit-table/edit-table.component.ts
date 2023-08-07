@@ -18,31 +18,27 @@ export class EditTableComponent implements OnInit{
   update=new FormGroup ({ firstname:new FormControl('',[Validators.required]),
   lastname:new FormControl('',[Validators.required]),
   age:new FormControl('',[Validators.required]),
-  sub:new FormControl('',[Validators.required]),
-  class:new FormControl('',[Validators.required]),
+  sub:new FormControl(''),
+  class:new FormControl(''),
   phone:new FormControl('',[Validators.required]),
   id:new FormControl('')
   });
   errormessage:any=''
   ngOnInit() {
     this.heroservice.dialogComponent(this.data).subscribe((value:any)=>{
-      this.update.controls['firstname'].setValue(value.firstname);
-      this.update.controls['lastname'].setValue(value.lastname);
-      this.update.controls['age'].setValue(value.age);
-      this.update.controls['sub'].setValue(value.sub);
-      this.update.controls['class'].setValue(value.class);
-      this.update.controls['phone'].setValue(value.phone);
-      this.update.controls['id'].setValue(value.id);
+      this.update.patchValue(value);
     },error=>{
       this.errormessage=error.error;
     })
   }
   onUpdate(){
-    this.heroservice.studentEditSave(this.update.value).subscribe((value:any)=>{
-      console.log(value)
-    },(error:any)=>{
-      this.errormessage=error.error;
-    })
+    if(this.update.valid){
+      this.heroservice.studentEditSave(this.update.value).subscribe((value:any)=>{
+        
+      },(error:any)=>{
+        this.errormessage=error.error;
+      })
+    }
+    return;
   }
- 
 }

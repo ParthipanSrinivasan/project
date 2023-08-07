@@ -16,11 +16,11 @@ export class StudentdetailsComponent {
     
   }
   student=new FormGroup ({ firstname:new FormControl('',[Validators.required]),
-  lastname:new FormControl(''),
-  age:new FormControl(''),
+  lastname:new FormControl('',[Validators.required]),
+  age:new FormControl('',[Validators.required]),
   sub:new FormControl(''),
   class:new FormControl(''),
-  phone:new FormControl(''),
+  phone:new FormControl('',[Validators.required]),
   });
   displayedColumns: string[] = ["id","firstname","lastname","age","sub","class","phone",'action'];
   dataSource:any;

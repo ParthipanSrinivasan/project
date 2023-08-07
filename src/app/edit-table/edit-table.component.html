@@ -16,7 +16,7 @@
     </div>
     <div mat-dialog-content>
       <label for="">Age</label>
-      <input type="text" class="form-control" formControlName="age" name="age">
+      <input type="text" class="form-control" onkeypress='return event.charCode >= 48 && event.charCode <= 57' formControlName="age" name="age">
       </div>
       <div mat-dialog-content>
         <label for="">Class</label>
