@@ -17,6 +17,7 @@ import { FormsModule } from '@angular/forms';
 import { MatDialogModule } from '@angular/material/dialog';
 import { RouterModule } from '@angular/router';
 import { EditTableComponent } from './edit-table/edit-table.component';
+import { HighlightDirective } from './highlight.directive';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { EditTableComponent } from './edit-table/edit-table.component';
     StudentdetailsComponent,
     DasboardComponent,
     EditTableComponent,
+    HighlightDirective,
     
   ],
   imports: [

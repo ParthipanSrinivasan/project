@@ -1,35 +1,50 @@
-    <form [formGroup]="update" (ngSubmit)="onUpdate()">
-     <div mat-dialog-title>
-      <h1 > Student Edit</h1>
+<form [formGroup]="update" (ngSubmit)="onUpdate()">
+  <div mat-dialog-title>
+    <h1 > Student Edit</h1>
+   </div>
+  <div mat-dialog-content>
+    <mat-form-field>
+      <mat-label>First Name</mat-label>
+       <input type="text"  matInput placeholder="First Name" formControlName="firstname" name="firstname">
+    </mat-form-field>
    </div>
    <div mat-dialog-content>
-   <label for="">FirstName</label>
-   <input type="text" class="form-control" formControlName="firstname" name="firstname">
+    <mat-form-field>
+      <mat-label>Last Name</mat-label>
+      <input type="text"  matInput placeholder="Last Name" formControlName="lastname" name="lastname" >
+      </mat-form-field>
    </div>
    <div mat-dialog-content>
-   <label for="">LastName</label>
-   <input type="text" class="form-control" formControlName="lastname" name="lastname">
+    <mat-form-field>
+      <mat-label>Age</mat-label>
+       <input type="text" appHighlight matInput placeholder="Age" formControlName="age" name="age" > 
+       </mat-form-field>
    </div>
-   <div mat-dialog-content>
-    <label for="">Subject</label>
-    <input type="text" class="form-control" formControlName="sub" name="sub">
-    </div>
     <div mat-dialog-content>
-      <label for="">Age</label>
-      <input type="text" class="form-control" onkeypress='return event.charCode >= 48 && event.charCode <= 57' formControlName="age" name="age">
+      <mat-form-field>
+        <mat-label>Subject</mat-label>
+          <input type="text"  matInput placeholder="Subject" formControlName="sub" name="sub" >
+        </mat-form-field>
       </div>
       <div mat-dialog-content>
-        <label for="">Class</label>
-        <input type="text" class="form-control" formControlName="class" name="class">
+        <mat-form-field>
+          <mat-label>Class</mat-label>
+            <input type="text"  matInput placeholder="Class" formControlName="class" name="class" >
+       </mat-form-field>
       </div>
       <div mat-dialog-content>
-        <label for="">Phone</label>
-        <input type="text" class="form-control" formControlName="phone" name="phone">
+        <mat-form-field>
+          <mat-label>Phone</mat-label>
+       <input type="text"  matInput placeholder="Phone" formControlName="phone" name="phone" >
+     </mat-form-field>
       </div>
+      <p class="alert alert-danger" *ngIf="update.invalid">
+        fill they all form
+    </p>
    <div mat-dialog-actions>
-   <button mat-button mat-dialog-close type="submit" class="btn btn-outline-primary" >Ok</button>
+   <button mat-button *ngIf="update.valid" mat-dialog-close type="submit" class="btn btn-outline-primary" >Ok</button>
    <button mat-button mat-dialog-close class="btn btn-outline-danger">close</button>
    </div>
-    </form>
+</form>
    
    
