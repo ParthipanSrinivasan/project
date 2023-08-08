@@ -24,11 +24,14 @@ export class EditTableComponent implements OnInit{
   });
   errormessage:any=''
   ngOnInit() {
-     this.heroservice.dialogComponent(this.data).subscribe((value:any)=>{
-      this.update.patchValue(value);
-    },error=>{
-      this.errormessage=error.error;
-    })
+    if(this.data!=null){
+      console.log(this.data)
+      this.heroservice.dialogComponent(this.data).subscribe((value:any)=>{
+        this.update.patchValue(value);
+      },error=>{
+        this.errormessage=error.error;
+      })
+    }
   }
   onUpdate(){
     if(this.update.valid){

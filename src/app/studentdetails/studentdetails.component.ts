@@ -24,8 +24,10 @@ export class StudentdetailsComponent {
   });
   displayedColumns: string[] = ["id","firstname","lastname","age","sub","class","phone",'action'];
   dataSource:any;
+  condition:any=false
   studentSaved(){
     alert("save the value");
+    this.condition=true
    if(this.student.valid){
     this.heroservive.studentDetailsSaved(this.student.value).subscribe(value=>{
       this.tableList();

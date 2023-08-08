@@ -35,6 +35,9 @@
                     <mat-label>Phone</mat-label>
                  <input type="text"  matInput placeholder="Phone" formControlName="phone" name="phone" >
                </mat-form-field>
+               <p class="alert alert-danger" *ngIf="condition && student.invalid">
+                fill they form required
+            </p>
              <br>
 
             <button mat-raised-button color="primary" type="submit" >saved</button>
