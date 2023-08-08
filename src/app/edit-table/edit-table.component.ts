@@ -14,13 +14,6 @@ export class EditTableComponent implements OnInit{
   constructor(public heroservice:HeroService,@Inject(MAT_DIALOG_DATA) public data: StudentdetailsComponent){
   
   }
-  /*@HostListener('keydown', ['$event']) onKeyDown(event:any){
-    this.hilight(event.charCode >= 48 && event.charCode <= 57);
-  }
-  private hilight(value:any){
-    this.number.nativeElement=value;
-    console.log(value)
-  }*/
   update=new FormGroup ({ firstname:new FormControl('',[Validators.required]),
   lastname:new FormControl('',[Validators.required]),
   age:new FormControl('',[Validators.required]),
@@ -46,5 +39,13 @@ export class EditTableComponent implements OnInit{
       })
     }
     return;
+  }
+  create(){
+    if(this.update.valid){
+      this.heroservice.dialogCreate(this.update.value).subscribe(value=>{
+        
+      });
+      return;
+     }
   }
 }

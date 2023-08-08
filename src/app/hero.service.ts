@@ -83,6 +83,17 @@ export class HeroService {
       val.next(this.studentrec);
       val.complete()
     })
-  return obser
+  return obser;
+  }
+  dialogCreate(create:any){
+    const obser=new Observable((val)=>{
+      if(("id" in create)){
+        create["id"]=(Math.floor(Math.random()*10000));
+      }
+      this.studentrec.push(create);
+      val.next(this.studentrec);
+      val.complete();
+    })
+    return obser;
   }
 }

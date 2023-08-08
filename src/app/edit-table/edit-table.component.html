@@ -43,7 +43,8 @@
     </p>
    <div mat-dialog-actions>
    <button mat-button *ngIf="update.valid" mat-dialog-close type="submit" class="btn btn-outline-primary" >Ok</button>
-   <button mat-button mat-dialog-close class="btn btn-outline-danger">close</button>
+   <button mat-button mat-dialog-close class="btn btn-outline-danger">close</button>  
+   <button mat-button *ngIf="update.valid" mat-dialog-close type="button" (click)="create()" class="btn btn-outline-primary" >Create</button>
    </div>
 </form>
    

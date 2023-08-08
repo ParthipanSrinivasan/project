@@ -35,8 +35,12 @@ export class StudentdetailsComponent {
   }
   open(row:any){
     this.matDialog.open(EditTableComponent,{height: '95%',
-    width:'50%',data:row.id},
+    width:'35%',data:row.id}
     );
+  }
+  create(){
+    this.matDialog.open(EditTableComponent,{height: '95%',
+    width:'40%'})
   }
   tableList(){
   this.heroservive.tableList().subscribe((value)=>{
