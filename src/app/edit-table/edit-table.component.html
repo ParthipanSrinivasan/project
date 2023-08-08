@@ -1,4 +1,4 @@
-<form [formGroup]="update" (ngSubmit)="onUpdate()">
+<form [formGroup]="update" (ngSubmit)="onUpdate()" *ngIf="form">
   <div mat-dialog-title>
     <h1 > Student Edit</h1>
    </div>
@@ -7,18 +7,27 @@
       <mat-label>First Name</mat-label>
        <input type="text"  matInput placeholder="First Name" formControlName="firstname" name="firstname">
     </mat-form-field>
+    <p class="alert alert-danger" *ngIf="condition && update.get('firstname')?.hasError('required')">
+      fill they form required
+  </p>
    </div>
    <div mat-dialog-content>
     <mat-form-field>
       <mat-label>Last Name</mat-label>
       <input type="text"  matInput placeholder="Last Name" formControlName="lastname" name="lastname" >
       </mat-form-field>
+      <p class="alert alert-danger" *ngIf="condition && update.get('lastname')?.hasError('required')">
+        fill they form required
+    </p>
    </div>
    <div mat-dialog-content>
     <mat-form-field>
       <mat-label>Age</mat-label>
        <input type="text" appHighlight matInput placeholder="Age" formControlName="age" name="age" > 
        </mat-form-field>
+       <p class="alert alert-danger" *ngIf="condition && update.get('age')?.hasError('required')">
+        fill they form required
+      </p>
    </div>
     <div mat-dialog-content>
       <mat-form-field>
@@ -38,14 +47,15 @@
        <input type="text"  matInput placeholder="Phone" formControlName="phone" name="phone" >
      </mat-form-field>
       </div>
-      <p class="alert alert-danger" *ngIf="update.invalid">
+      <p class="alert alert-danger" *ngIf="condition && update.get('phone')?.hasError('required') ">
         fill they all form
     </p>
    <div mat-dialog-actions>
-   <button mat-button *ngIf="update.valid" mat-dialog-close type="submit" class="btn btn-outline-primary" >Ok</button>
-   <button mat-button mat-dialog-close class="btn btn-outline-danger">close</button>  
-   <button mat-button *ngIf="update.valid" mat-dialog-close type="button" (click)="create()" class="btn btn-outline-primary" >Create</button>
+   <button mat-button  type="submit" class="btn btn-outline-primary" >Saved</button>  
+   <button mat-button   type="button" (click)="create()" class="btn btn-outline-primary" >Create</button>
    </div>
 </form>
+<p>{{errormessage}}</p>
+<button mat-button mat-dialog-close class="btn btn-outline-danger">close</button>
    
    

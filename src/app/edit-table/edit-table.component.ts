@@ -23,6 +23,8 @@ export class EditTableComponent implements OnInit{
   id:new FormControl('')
   });
   errormessage:any=''
+  condition:any=false;
+  form:any=true;
   ngOnInit() {
     if(this.data!=null){
       console.log(this.data)
@@ -34,9 +36,11 @@ export class EditTableComponent implements OnInit{
     }
   }
   onUpdate(){
+    this.condition=true;
     if(this.update.valid){
       this.heroservice.studentEditSave(this.update.value).subscribe((value:any)=>{
-        
+        this.form=false;
+        this.errormessage="successFuly saved";
       },(error:any)=>{
         this.errormessage=error.error;
       })
@@ -44,9 +48,11 @@ export class EditTableComponent implements OnInit{
     return;
   }
   create(){
+    this.condition=true;
     if(this.update.valid){
       this.heroservice.dialogCreate(this.update.value).subscribe(value=>{
-        
+        this.form=false;
+        this.errormessage="create successFuly";
       });
       return;
      }
