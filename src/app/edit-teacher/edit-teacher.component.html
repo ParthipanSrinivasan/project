@@ -1,0 +1,42 @@
+<div class="container">
+    <div class="row">
+      <div class="col-12-lg ">
+        <div class="my-5">
+          <div class="text-center">
+            <div class="py-5" >
+              <h2 class="text-dark">Student Details</h2>
+             <form [formGroup]="teacher" (ngSubmit)="editSaved()">
+              <mat-form-field>
+                <mat-label>First Name</mat-label>
+                 <input type="text"  matInput placeholder="First Name" formControlName="firstname" name="firstname">
+            </mat-form-field>
+            <p class="alert alert-danger" *ngIf="condition && teacher.get('firstname')?.hasError('required')">
+              fill they form required
+          </p>
+            <br>
+            <mat-form-field>
+            <mat-label>Last Name</mat-label>
+            <input type="text"  matInput placeholder="Last Name" formControlName="lastname" name="lastname" >
+            </mat-form-field>
+            <p class="alert alert-danger" *ngIf="condition && teacher.get('lastname')?.hasError('required')">
+              fill they form required
+          </p>
+           <br>
+             <mat-form-field>
+                <mat-label>Class</mat-label>
+                  <input type="text"  matInput placeholder="Class" formControlName="class" name="class" >
+             </mat-form-field>
+
+             <p class="alert alert-danger" *ngIf="condition && teacher.get('class')?.hasError('required')">
+                fill they form required
+            </p>
+             <br>
+            <button mat-raised-button color="primary" type="submit" >saved</button>
+             </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+

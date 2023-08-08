@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginPageComponent } from './login-page/login-page.component';
@@ -14,10 +13,12 @@ import { StudentdetailsComponent } from './studentdetails/studentdetails.compone
 import { DasboardComponent } from './dasboard/dasboard.component';
 import { MatTableModule } from '@angular/material/table';
 import { FormsModule } from '@angular/forms';
-import { MatDialogModule } from '@angular/material/dialog';
+import { MatDialogModule, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { RouterModule } from '@angular/router';
 import { EditTableComponent } from './edit-table/edit-table.component';
 import { HighlightDirective } from './highlight.directive';
+import { TeacherComponent } from './teacher/teacher.component';
+import { EditTeacherComponent } from './edit-teacher/edit-teacher.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,8 @@ import { HighlightDirective } from './highlight.directive';
     DasboardComponent,
     EditTableComponent,
     HighlightDirective,
+    TeacherComponent,
+    EditTeacherComponent,
     
   ],
   imports: [
