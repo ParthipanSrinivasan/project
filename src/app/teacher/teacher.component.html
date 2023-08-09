@@ -31,7 +31,8 @@
                 fill they form required
             </p>
              <br>
-            <button mat-raised-button color="primary" type="submit" >saved</button>
+            <button mat-raised-button color="primary" type="submit" *ngIf="val1">saved</button>
+            <button mat-raised-button color="warn" (click)="editSaved()" *ngIf="val2">Update</button>
              </form>
             </div>
           </div>

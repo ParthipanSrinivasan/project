@@ -5,7 +5,6 @@ import { StudentdetailsComponent } from './studentdetails/studentdetails.compone
 import { AuthguardGuard } from './authguard.guard';
 import { AppComponent } from './app.component';
 import { DasboardComponent } from './dasboard/dasboard.component';
-import { EditTableComponent } from './edit-table/edit-table.component';
 import { TeacherComponent } from './teacher/teacher.component';
 
 
@@ -16,7 +15,7 @@ const routes: Routes = [
     {path:"dasboard",component:DasboardComponent},
     {path:"student",component:StudentdetailsComponent},
     {path:"teacher",component:TeacherComponent},
-    {path:"edit/:id",component:EditTableComponent}
+    {path:"edit/:id",component:TeacherComponent},
 
   ]},
     {path:"login",component:LoginPageComponent},
