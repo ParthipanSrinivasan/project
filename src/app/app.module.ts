@@ -9,27 +9,27 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatInputModule} from '@angular/material/input';
 import { MatFormFieldModule} from '@angular/material/form-field';
 import { ReactiveFormsModule} from '@angular/forms';
-import { StudentdetailsComponent } from './studentdetails/studentdetails.component';
+import { StudentaddComponet } from './student/student-add/student-add.component';
 import { DasboardComponent } from './dasboard/dasboard.component';
 import { MatTableModule } from '@angular/material/table';
 import { FormsModule } from '@angular/forms';
 import { MatDialogModule, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { RouterModule } from '@angular/router';
-import { EditTableComponent } from './studentdetails/edit-table/edit-table.component';
+import { StudentListComponent } from './student/student-list.component';
 import { HighlightDirective } from './highlight.directive';
-import { TeacherComponent } from './teacher/teacher.component';
-import { ListComponent } from './teacher/list/list.component';
+import { TeacherAddComponent } from './teacher/teacher-add/teacher-add.component';
+import { TeacherListComponent } from './teacher/teacher-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginPageComponent,
-    StudentdetailsComponent,
+    StudentaddComponet,
     DasboardComponent,
-    EditTableComponent,
+    StudentListComponent,
     HighlightDirective,
-    TeacherComponent,
-    ListComponent,
+    TeacherAddComponent,
+    TeacherListComponent,
   ],
   imports: [
     BrowserModule,

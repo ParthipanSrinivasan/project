@@ -1,12 +1,12 @@
 import { Component,OnInit } from '@angular/core';
-import { SecondSeriviceService } from '../../second-serivice.service';
+import { SecondSeriviceService } from '../second-serivice.service';
 
 @Component({
   selector: 'app-list',
-  templateUrl: './list.component.html',
-  styleUrls: ['./list.component.css']
+  templateUrl: './teacher-list.component.html',
+  styleUrls: ['./teacher-list.component.css']
 })
-export class ListComponent implements OnInit{
+export class TeacherListComponent implements OnInit{
   displayedColumns: string[] = ["id","firstname","lastname","class","action"];
   dataSource:any;
   constructor(private secondservice:SecondSeriviceService){}

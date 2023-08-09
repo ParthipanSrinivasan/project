@@ -1,16 +1,19 @@
 import { Component,Inject,OnInit} from '@angular/core';
 import { MAT_DIALOG_DATA} from '@angular/material/dialog';
-import { HeroService } from '../../hero.service';
+import { HeroService } from '../hero.service';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Validators } from '@angular/forms';
-import { StudentdetailsComponent } from '../studentdetails.component';
+import { StudentaddComponet } from './student-add/student-add.component';
 
 @Component({
   selector: 'app-edit-table',
-  templateUrl: './edit-table.component.html',
-  styleUrls: ['./edit-table.component.css']
+  templateUrl: './student-list.component.html',
+  styleUrls: ['./student-list.component.css']
 })
-export class EditTableComponent implements OnInit{
+export class StudentListComponent implements OnInit{
+  constructor(public heroservice:HeroService,@Inject(MAT_DIALOG_DATA) public data: StudentaddComponet){
+  
+  }
   update=new FormGroup ({ firstname:new FormControl('',[Validators.required]),
   lastname:new FormControl('',[Validators.required]),
   age:new FormControl('',[Validators.required]),
@@ -22,7 +25,6 @@ export class EditTableComponent implements OnInit{
   errormessage:any=''
   condition:any=false;
   form:any=true;
-  constructor(public heroservice:HeroService,@Inject(MAT_DIALOG_DATA) public data: StudentdetailsComponent){}
   ngOnInit() {
     if(this.data!=null){
       console.log(this.data)

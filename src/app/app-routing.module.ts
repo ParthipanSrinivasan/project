@@ -1,23 +1,22 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginPageComponent } from './login-page/login-page.component';
-import { StudentdetailsComponent } from './studentdetails/studentdetails.component';
+import { StudentaddComponet } from './student/student-add/student-add.component';
 import { AuthguardGuard } from './authguard.guard';
 import { AppComponent } from './app.component';
 import { DasboardComponent } from './dasboard/dasboard.component';
-import { TeacherComponent } from './teacher/teacher.component';
-import { EditTableComponent } from './studentdetails/edit-table/edit-table.component';
-import { ListComponent } from './teacher/list/list.component';
+import { TeacherAddComponent } from './teacher/teacher-add/teacher-add.component';
+import { TeacherListComponent } from './teacher/teacher-list.component';
 
 const routes: Routes = [
   {path:"",component:AppComponent,
   canActivate:[AuthguardGuard],
   children:[
     {path:"dasboard",component:DasboardComponent},
-    {path:"student",component:StudentdetailsComponent},
-    {path:"teacher/add",component:TeacherComponent},
-    {path:"edit/:id",component:TeacherComponent},
-    {path:"list",component:ListComponent}
+    {path:"student",component:StudentaddComponet},
+    {path:"teacher/add",component:TeacherAddComponent},
+    {path:"edit/:id",component:TeacherAddComponent},
+    {path:"list",component:TeacherListComponent}
 
   ]},
     {path:"login",component:LoginPageComponent},

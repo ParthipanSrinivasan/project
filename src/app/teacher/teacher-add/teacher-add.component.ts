@@ -1,15 +1,15 @@
 import { Component,OnInit } from '@angular/core';
-import { SecondSeriviceService } from '../second-serivice.service';
+import { SecondSeriviceService } from '../../second-serivice.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from "@angular/router";
 import { Router} from '@angular/router';
 
 @Component({
   selector: 'app-teacher',
-  templateUrl: './teacher.component.html',
-  styleUrls: ['./teacher.component.css']
+  templateUrl: './teacher-add.component.html',
+  styleUrls: ['./teacher-add.component.css']
 })
-export class TeacherComponent implements OnInit {
+export class TeacherAddComponent implements OnInit {
 teacher:any=new FormGroup({firstname:new FormControl('',[Validators.required]),
 lastname:new FormControl('',[Validators.required]),
 class:new FormControl('',[Validators.required]),

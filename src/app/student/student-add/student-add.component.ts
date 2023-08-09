@@ -1,17 +1,17 @@
 import { Component } from '@angular/core';
-import { HeroService } from '../hero.service';
+import { HeroService } from '../../hero.service';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Validators } from '@angular/forms';
 import { first } from 'rxjs'; 
 import { MatDialog } from '@angular/material/dialog';
-import { EditTableComponent } from './edit-table/edit-table.component';
+import { StudentListComponent } from '../student-list.component';
 
 @Component({
   selector: 'app-studentdetails',
-  templateUrl: './studentdetails.component.html',
-  styleUrls: ['./studentdetails.component.css']
+  templateUrl: './student-add.component.html',
+  styleUrls: ['./student-add.component.css']
 })
-export class StudentdetailsComponent {
+export class StudentaddComponet {
   constructor(public heroservive:HeroService, public matDialog:MatDialog ){
     
   }
@@ -36,12 +36,12 @@ export class StudentdetailsComponent {
    }
   }
   open(row:any){
-    this.matDialog.open(EditTableComponent,{height: '95%',
+    this.matDialog.open(StudentListComponent,{height: '95%',
     width:'35%',data:row.id}
     );
   }
   create(){
-    this.matDialog.open(EditTableComponent,{height: '95%',
+    this.matDialog.open(StudentListComponent,{height: '95%',
     width:'40%'})
   }
   tableList(){
