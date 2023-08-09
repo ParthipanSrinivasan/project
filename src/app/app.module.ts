@@ -18,6 +18,7 @@ import { RouterModule } from '@angular/router';
 import { EditTableComponent } from './edit-table/edit-table.component';
 import { HighlightDirective } from './highlight.directive';
 import { TeacherComponent } from './teacher/teacher.component';
+import { ListComponent } from './list/list.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { TeacherComponent } from './teacher/teacher.component';
     EditTableComponent,
     HighlightDirective,
     TeacherComponent,
+    ListComponent,
   ],
   imports: [
     BrowserModule,
