@@ -14,10 +14,11 @@ export class SecondSeriviceService {
   }
   teacherSaved(teacher:any){
     const obser=new Observable(val=>{
-      if(!("id" in teacher)){
+      if(("id" in teacher)){
         teacher["id"]=(Math.floor(Math.random()*10000));
       }
       this.teacherec.push(teacher);
+      
       val.next(this.teacherec);
       val.complete();
     })

@@ -36,10 +36,13 @@ ngOnInit(){
   });
 }
 onSaved(){
-this.secondservice.teacherSaved(this.teacher.value).subscribe((value:any)=>{
+this.condition=true
+  if(this.teacher.valid){
+    this.secondservice.teacherSaved(this.teacher.value).subscribe((value:any)=>{
       this.tableList();
     
     })
+  }
   }
   tableList(){
     this.secondservice.showList().subscribe(value=>{
@@ -47,6 +50,7 @@ this.secondservice.teacherSaved(this.teacher.value).subscribe((value:any)=>{
     });
   }
   editSaved(){
+   if(this.teacher.valid){
     this.condition=true
     if(this.teacher.valid){
       this.secondservice.updateTeacher(this.teacher.value).subscribe(val=>{
@@ -55,5 +59,6 @@ this.secondservice.teacherSaved(this.teacher.value).subscribe((value:any)=>{
         this.errormessage=error.error;
       });
     }
+   }
   }
 }
