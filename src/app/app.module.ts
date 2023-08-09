@@ -15,10 +15,10 @@ import { MatTableModule } from '@angular/material/table';
 import { FormsModule } from '@angular/forms';
 import { MatDialogModule, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { RouterModule } from '@angular/router';
-import { EditTableComponent } from './edit-table/edit-table.component';
+import { EditTableComponent } from './studentdetails/edit-table/edit-table.component';
 import { HighlightDirective } from './highlight.directive';
 import { TeacherComponent } from './teacher/teacher.component';
-import { ListComponent } from './list/list.component';
+import { ListComponent } from './teacher/list/list.component';
 
 @NgModule({
   declarations: [

@@ -4,7 +4,7 @@ import { FormControl, FormGroup } from '@angular/forms';
 import { Validators } from '@angular/forms';
 import { first } from 'rxjs'; 
 import { MatDialog } from '@angular/material/dialog';
-import { EditTableComponent } from '../edit-table/edit-table.component';
+import { EditTableComponent } from './edit-table/edit-table.component';
 
 @Component({
   selector: 'app-studentdetails',

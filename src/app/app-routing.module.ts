@@ -6,9 +6,8 @@ import { AuthguardGuard } from './authguard.guard';
 import { AppComponent } from './app.component';
 import { DasboardComponent } from './dasboard/dasboard.component';
 import { TeacherComponent } from './teacher/teacher.component';
-import { EditTableComponent } from './edit-table/edit-table.component';
-import { ListComponent } from './list/list.component';
-
+import { EditTableComponent } from './studentdetails/edit-table/edit-table.component';
+import { ListComponent } from './teacher/list/list.component';
 
 const routes: Routes = [
   {path:"",component:AppComponent,

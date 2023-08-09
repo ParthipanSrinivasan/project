@@ -10,7 +10,6 @@ import { Router} from '@angular/router';
   styleUrls: ['./teacher.component.css']
 })
 export class TeacherComponent implements OnInit {
-constructor(private route:ActivatedRoute,private secondservice:SecondSeriviceService,private router:Router){}
 teacher:any=new FormGroup({firstname:new FormControl('',[Validators.required]),
 lastname:new FormControl('',[Validators.required]),
 class:new FormControl('',[Validators.required]),
@@ -20,6 +19,7 @@ condition:any=false;
 errormessage:any="";
 val1:any=true;
 val2:any=false;
+constructor(private route:ActivatedRoute,private secondservice:SecondSeriviceService,private router:Router){}
 ngOnInit(){
   this.route.params.subscribe(params=>{
     let id = params['id'];
