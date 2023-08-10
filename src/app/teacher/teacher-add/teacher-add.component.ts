@@ -1,10 +1,10 @@
 import { Component,OnInit } from '@angular/core';
-import { SecondSeriviceService } from '../second-serivice.service';
+import { TeacherService } from '../teacher.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from "@angular/router";
 import { Router} from '@angular/router';
 @Component({
-  selector: 'app-teacher',
+  selector: 'app-teacher-add',
   templateUrl: './teacher-add.component.html',
   styleUrls: ['./teacher-add.component.css']
 })
@@ -18,12 +18,12 @@ condition:any=false;
 errormessage:any="";
 val1:any=true;
 val2:any=false;
-constructor(private route:ActivatedRoute,private secondservice:SecondSeriviceService,private router:Router){}
+constructor(private route:ActivatedRoute,private teacherservice:TeacherService,private router:Router){}
 ngOnInit(){
   this.route.params.subscribe(params=>{
-    let id = params['id'];
+    //let id = params['id'];
     if(typeof params['id']!=undefined){
-      this.secondservice.idValueGet(id).subscribe((value:any)=>{
+      this.teacherservice.idValueGet(params['id']).subscribe((value:any)=>{
         this.teacher.patchValue(value);
         this.val1=false;
         this.val2=true;
@@ -36,7 +36,7 @@ ngOnInit(){
 onSaved(){
 this.condition=true
   if(this.teacher.valid){
-    this.secondservice.teacherSaved(this.teacher.value).subscribe((value:any)=>{
+    this.teacherservice.teacherSaved(this.teacher.value).subscribe((value:any)=>{
       this.router.navigate(['teacher/list']);
     })
   }
@@ -45,7 +45,7 @@ this.condition=true
    if(this.teacher.valid){
     this.condition=true
     if(this.teacher.valid){
-      this.secondservice.updateTeacher(this.teacher.value).subscribe(val=>{
+      this.teacherservice.updateTeacher(this.teacher.value).subscribe(val=>{
         this.router.navigate(['teacher/list']);
       },error=>{
         this.errormessage=error.error;

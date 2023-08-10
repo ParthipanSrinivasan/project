@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class SecondSeriviceService {
+export class TeacherService {
   teacherec:any
   constructor() { 
     this.teacherec=[{id:"3456",firstname:"Banu",lastname:"mathi",class:"10th"},

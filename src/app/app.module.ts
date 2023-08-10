@@ -13,12 +13,14 @@ import { StudentListComponet } from './student/student-list.component';
 import { DasboardComponent } from './dasboard/dasboard.component';
 import { MatTableModule } from '@angular/material/table';
 import { FormsModule } from '@angular/forms';
-import { MatDialogModule, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatDialogModule} from '@angular/material/dialog';
 import { RouterModule } from '@angular/router';
-import { StudentPopComponent } from './student/viewpop/student-pop.component';
+import { StudentPopComponent } from './student/student-pop/student-pop.component';
 import { HighlightDirective } from './highlight.directive';
 import { TeacherAddComponent } from './teacher/teacher-add/teacher-add.component';
 import { TeacherListComponent } from './teacher/teacher-list.component';
+import {NgFor} from '@angular/common';
+import {MatSelectModule} from '@angular/material/select';
 
 @NgModule({
   declarations: [
@@ -43,7 +45,9 @@ import { TeacherListComponent } from './teacher/teacher-list.component';
     MatTableModule,
     FormsModule,
     RouterModule,
-    MatDialogModule
+    MatDialogModule,
+    NgFor,
+    MatSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]

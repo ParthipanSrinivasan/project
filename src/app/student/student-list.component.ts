@@ -1,18 +1,18 @@
 import { Component, OnInit } from '@angular/core';
-import { HeroService } from './first-service.service';
+import { StudentService } from './student.service';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Validators } from '@angular/forms';
 import { first } from 'rxjs'; 
 import { MatDialog } from '@angular/material/dialog';
-import { StudentPopComponent } from './viewpop/student-pop.component';
+import { StudentPopComponent } from './student-pop/student-pop.component';
 
 @Component({
-  selector: 'app-studentdetails',
+  selector: 'app-student-list',
   templateUrl: './student-list.component.html',
   styleUrls: ['./student-list.component.css']
 })
 export class StudentListComponet implements OnInit {
-  constructor(public heroservive:HeroService, public matDialog:MatDialog ){
+  constructor(public studentservive:StudentService, public matDialog:MatDialog ){
     
   }
   student=new FormGroup ({ firstname:new FormControl('',[Validators.required]),
@@ -26,7 +26,7 @@ export class StudentListComponet implements OnInit {
   dataSource:any;
   condition:any=false;
   ngOnInit(){
-    this.heroservive.tableList().subscribe((value)=>{
+    this.studentservive.tableList().subscribe((value)=>{
     this.dataSource=value;
     });
   }

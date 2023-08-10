@@ -5,7 +5,6 @@ import { AuthguardGuard } from './authguard.guard';
 import { DasboardComponent } from './dasboard/dasboard.component';
 import { TeacherAddComponent } from './teacher/teacher-add/teacher-add.component';
 import { TeacherListComponent } from './teacher/teacher-list.component';
-import { AppComponent } from './app.component';
 import { StudentListComponet } from './student/student-list.component';
 
 

@@ -38,7 +38,11 @@
       <div mat-dialog-content>
         <mat-form-field>
           <mat-label>Class</mat-label>
-            <input type="text"  matInput placeholder="Class" formControlName="class" name="class" >
+          <mat-select formControlName="class" name="class">
+            <mat-option *ngFor="let student of class" [value]="student.value">
+              {{student.value}}
+            </mat-option>
+          </mat-select>
        </mat-form-field>
       </div>
       <div mat-dialog-content>
@@ -51,8 +55,8 @@
         fill they all form
     </p>
    <div mat-dialog-actions>
-   <button mat-button  mat-dialog-close type="submit" class="btn btn-outline-primary" *ngIf="valu1" >Saved</button>  
-   <button mat-button   mat-dialog-close type="button" (click)="create()" class="btn btn-outline-primary" *ngIf="valu2" >Create</button>
+   <button mat-button  mat-dialog-close type="submit" class="btn btn-outline-primary">Saved</button>  
+   <button mat-button   mat-dialog-close type="button" (click)="create()" class="btn btn-outline-primary" >Create</button>
    <button mat-button mat-dialog-close class="btn btn-outline-danger">close</button>
    </div>
 </form>

@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Router} from '@angular/router';
 import { Validators } from '@angular/forms';
-import { HeroService } from '../student/first-service.service';
 import { LoginServiceService } from './login-service.service';
 
 @Component({
