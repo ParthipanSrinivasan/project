@@ -29,7 +29,7 @@ export class LoginPageComponent {
         const person:string=""+val;
         localStorage.setItem("token",person);
         this.condition=false;
-        this.router.navigate(['/dasboard']);
+        this.router.navigate(['/student/list']);
       },error=>{
         this.error=error.error;
         this.condition=true;

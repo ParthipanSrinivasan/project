@@ -3,7 +3,6 @@ import { SecondSeriviceService } from '../second-serivice.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from "@angular/router";
 import { Router} from '@angular/router';
-
 @Component({
   selector: 'app-teacher',
   templateUrl: './teacher-add.component.html',
@@ -38,7 +37,7 @@ onSaved(){
 this.condition=true
   if(this.teacher.valid){
     this.secondservice.teacherSaved(this.teacher.value).subscribe((value:any)=>{
-      this.router.navigate(['/list']);
+      this.router.navigate(['teacher/list']);
     })
   }
   }
@@ -47,7 +46,7 @@ this.condition=true
     this.condition=true
     if(this.teacher.valid){
       this.secondservice.updateTeacher(this.teacher.value).subscribe(val=>{
-        this.router.navigate(['/list']);
+        this.router.navigate(['teacher/list']);
       },error=>{
         this.errormessage=error.error;
       });

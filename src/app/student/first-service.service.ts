@@ -8,9 +8,9 @@ export class HeroService {
   studentrec:any=[];
   constructor(){
     this.studentrec=
-    [{id:123,firstname:"parth",lastname:"sokku",age:"22",sub:"",class:"",phone:"9807867812"},
-    {id:124,firstname:"parth",lastname:"sokku",age:"22",sub:"",class:"",phone:"9807867812"},
-    {id:125,firstname:"parth",lastname:"sokku",age:"22",sub:"",class:"",phone:"9807867812"}]
+    [{id:123,firstname:"parth",lastname:"sokku",age:"22",sub:"english",class:"12th",phone:"9807867812"},
+    {id:124,firstname:"parth",lastname:"sokku",age:"22",sub:"tamil",class:"11th",phone:"9807867812"},
+    {id:125,firstname:"parth",lastname:"sokku",age:"22",sub:"history",class:"10th",phone:"9807867812"}]
   }
   tableList(){
     const obser=new Observable((val)=>{

@@ -10,14 +10,13 @@ import { StudentListComponet } from './student/student-list.component';
 
 
 const routes: Routes = [
-  {path:"",component:AppComponent,
+  {path:"",component:DasboardComponent,
   canActivate:[AuthguardGuard],
-  children:[ 
-    {path:"dasboard",component:DasboardComponent},
+  children:[
     {path:"student/list",component:StudentListComponet},
     {path:"teacher/add",component:TeacherAddComponent},
-    {path:"edit/:id",component:TeacherAddComponent},
-    {path:"list",component:TeacherListComponent}
+    {path:"teacher/edit/:id",component:TeacherAddComponent},
+    {path:"teacher/list",component:TeacherListComponent}
   ]},
     {path:"login",component:LoginPageComponent},
 ];
