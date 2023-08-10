@@ -1,5 +1,5 @@
 import { Component,OnInit } from '@angular/core';
-import { SecondSeriviceService } from '../second-serivice.service';
+import { SecondSeriviceService } from './second-serivice.service';
 
 @Component({
   selector: 'app-list',

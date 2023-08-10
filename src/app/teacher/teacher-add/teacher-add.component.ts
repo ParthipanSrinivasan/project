@@ -1,5 +1,5 @@
 import { Component,OnInit } from '@angular/core';
-import { SecondSeriviceService } from '../../second-serivice.service';
+import { SecondSeriviceService } from '../second-serivice.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from "@angular/router";
 import { Router} from '@angular/router';

@@ -2,7 +2,8 @@ import { Component } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Router} from '@angular/router';
 import { Validators } from '@angular/forms';
-import { HeroService } from '../hero.service';
+import { HeroService } from '../student/first-service.service';
+import { LoginServiceService } from './login-service.service';
 
 @Component({
   selector: 'app-login-page',
@@ -10,8 +11,8 @@ import { HeroService } from '../hero.service';
   styleUrls: ['./login-page.component.css']
 })
 export class LoginPageComponent {
-  constructor(private heroservice:HeroService,private router:Router){
-    this.heroservice.login_details;
+  constructor(private loginservice:LoginServiceService,private router:Router){
+    this.loginservice.login_details;
   }
   login=new FormGroup ({ phone:new FormControl('',[Validators.required,Validators.minLength(10)]),
   pass:new FormControl('',[Validators.required,Validators.minLength(6)])
@@ -24,7 +25,7 @@ export class LoginPageComponent {
   userLogin(){
     this.minlength=true;
     if(this.login.valid){
-      this.heroservice.validCheck(this.login.value).subscribe(val=>{
+      this.loginservice.validCheck(this.login.value).subscribe(val=>{
         const person:string=""+val;
         localStorage.setItem("token",person);
         this.condition=false;

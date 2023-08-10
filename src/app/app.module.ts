@@ -9,13 +9,13 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatInputModule} from '@angular/material/input';
 import { MatFormFieldModule} from '@angular/material/form-field';
 import { ReactiveFormsModule} from '@angular/forms';
-import { StudentaddComponet } from './student/student-add/student-add.component';
+import { StudentListComponet } from './student/student-list.component';
 import { DasboardComponent } from './dasboard/dasboard.component';
 import { MatTableModule } from '@angular/material/table';
 import { FormsModule } from '@angular/forms';
 import { MatDialogModule, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { RouterModule } from '@angular/router';
-import { StudentListComponent } from './student/student-list.component';
+import { StudentPopComponent } from './student/viewpop/student-pop.component';
 import { HighlightDirective } from './highlight.directive';
 import { TeacherAddComponent } from './teacher/teacher-add/teacher-add.component';
 import { TeacherListComponent } from './teacher/teacher-list.component';
@@ -24,9 +24,9 @@ import { TeacherListComponent } from './teacher/teacher-list.component';
   declarations: [
     AppComponent,
     LoginPageComponent,
-    StudentaddComponet,
+    StudentListComponet,
     DasboardComponent,
-    StudentListComponent,
+    StudentPopComponent,
     HighlightDirective,
     TeacherAddComponent,
     TeacherListComponent,

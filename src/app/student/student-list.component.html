@@ -1,61 +1,47 @@
-<form [formGroup]="update" (ngSubmit)="onUpdate()" *ngIf="form">
-  <div mat-dialog-title>
-    <h1 > Student Edit</h1>
-   </div>
-  <div mat-dialog-content>
-    <mat-form-field>
-      <mat-label>First Name</mat-label>
-       <input type="text"  matInput placeholder="First Name" formControlName="firstname" name="firstname">
-    </mat-form-field>
-    <p class="alert alert-danger" *ngIf="condition && update.get('firstname')?.hasError('required')">
-      fill they form required
-  </p>
-   </div>
-   <div mat-dialog-content>
-    <mat-form-field>
-      <mat-label>Last Name</mat-label>
-      <input type="text"  matInput placeholder="Last Name" formControlName="lastname" name="lastname" >
-      </mat-form-field>
-      <p class="alert alert-danger" *ngIf="condition && update.get('lastname')?.hasError('required')">
-        fill they form required
-    </p>
-   </div>
-   <div mat-dialog-content>
-    <mat-form-field>
-      <mat-label>Age</mat-label>
-       <input type="text" appHighlight matInput placeholder="Age" formControlName="age" name="age" > 
-       </mat-form-field>
-       <p class="alert alert-danger" *ngIf="condition && update.get('age')?.hasError('required')">
-        fill they form required
-      </p>
-   </div>
-    <div mat-dialog-content>
-      <mat-form-field>
-        <mat-label>Subject</mat-label>
-          <input type="text"  matInput placeholder="Subject" formControlName="sub" name="sub" >
-        </mat-form-field>
+<div class="container">
+    <div class="row">
+      <div class="col-12-lg "> 
+        <div class="col-12-lg">
+          <table mat-table [dataSource]="dataSource">
+            <ng-container matColumnDef="id">
+              <th mat-header-cell *matHeaderCellDef> Id </th>
+              <td mat-cell *matCellDef="let element">{{element.id}}</td>
+            </ng-container>
+            <ng-container matColumnDef="firstname">
+              <th mat-header-cell *matHeaderCellDef> FirstName </th>
+              <td mat-cell *matCellDef="let element">{{element.firstname}}</td>
+            </ng-container>
+            <ng-container matColumnDef="lastname">
+                <th mat-header-cell *matHeaderCellDef> LastName </th>
+                <td mat-cell *matCellDef="let element"> {{element.lastname}} </td>
+              </ng-container>
+              <ng-container matColumnDef="sub">
+                <th mat-header-cell *matHeaderCellDef> Subject </th>
+                <td mat-cell *matCellDef="let element"> {{element.sub}} </td>
+              </ng-container>
+              <ng-container matColumnDef="age">
+                <th mat-header-cell *matHeaderCellDef> Age </th>
+                <td mat-cell *matCellDef="let element"> {{element.age}} </td>
+              </ng-container>
+              <ng-container matColumnDef="class">
+                <th mat-header-cell *matHeaderCellDef> Class </th>
+                <td mat-cell *matCellDef="let element"> {{element.class}} </td>
+              </ng-container>
+              <ng-container matColumnDef="phone">
+                <th mat-header-cell *matHeaderCellDef> Phone </th>
+                <td mat-cell *matCellDef="let element"> {{element.phone}} </td>
+              </ng-container>
+              <ng-container matColumnDef='action'>
+                <th mat-header-cell *matHeaderCellDef> Edit </th>
+                <td mat-cell *matCellDef="let row">
+                  <button mat-icon-button color="warn" (click)="open(row)"> <mat-icon>edit</mat-icon> </button>
+                  <button mat-icon-button color="warn" (click)="create()"> <mat-icon>open_in_new</mat-icon> </button>
+                </td>
+              </ng-container >
+              <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+        </div>
       </div>
-      <div mat-dialog-content>
-        <mat-form-field>
-          <mat-label>Class</mat-label>
-            <input type="text"  matInput placeholder="Class" formControlName="class" name="class" >
-       </mat-form-field>
-      </div>
-      <div mat-dialog-content>
-        <mat-form-field>
-          <mat-label>Phone</mat-label>
-       <input type="text"  matInput placeholder="Phone" formControlName="phone" name="phone" >
-     </mat-form-field>
-      </div>
-      <p class="alert alert-danger" *ngIf="condition && update.get('phone')?.hasError('required') ">
-        fill they all form
-    </p>
-   <div mat-dialog-actions>
-   <button mat-button  type="submit" class="btn btn-outline-primary" >Saved</button>  
-   <button mat-button   type="button" (click)="create()" class="btn btn-outline-primary" >Create</button>
-   </div>
-</form>
-<p>{{errormessage}}</p>
-<button mat-button mat-dialog-close class="btn btn-outline-danger">close</button>
-   
-   
+    </div>
+  </div>
