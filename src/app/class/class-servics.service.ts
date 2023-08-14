@@ -24,6 +24,7 @@ export class ClassServicsService {
     const obser=new Observable((val:any)=>{
       value['viewValue']=value.value;
       this.class.push(value);
+      console.log(this.class)
       val.next(value);
       val.complete();
     });

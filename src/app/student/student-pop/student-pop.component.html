@@ -42,6 +42,7 @@
             <mat-option *ngFor="let student of classservice.class" [value]="student.value">
               {{student.value}}
             </mat-option>
+            <mat-option value="value" (click)="open()">Add value</mat-option>
           </mat-select>
        </mat-form-field>
       </div>
