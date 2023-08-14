@@ -1,5 +1,7 @@
 import { Component,OnInit } from '@angular/core';
 import { ClassServicsService } from './class-servics.service';
+import { MatDialog } from '@angular/material/dialog';
+import { ClassAddComponent } from './class-add/class-add.component';
 
 @Component({
   selector: 'app-class-list',
@@ -9,10 +11,14 @@ import { ClassServicsService } from './class-servics.service';
 export class ClassListComponent implements OnInit{
   displayedColumns: string[] = ["value","viewValue"];
   dataSource:any;
-  constructor(private classservice:ClassServicsService){}
+  constructor(private classservice:ClassServicsService,public matDialog:MatDialog){}
   ngOnInit(){
     this.classservice.showList().subscribe(value=>{
       this.dataSource=value
     });
+  }
+  open(){
+    this.matDialog.open(ClassAddComponent,{height:"35%",width:"30%"}
+    );
   }
 }
