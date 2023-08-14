@@ -21,6 +21,8 @@ import { TeacherAddComponent } from './teacher/teacher-add/teacher-add.component
 import { TeacherListComponent } from './teacher/teacher-list.component';
 import { NgFor } from '@angular/common';
 import { MatSelectModule } from '@angular/material/select';
+import { ClassListComponent } from './class/class-list.component';
+import { ClassAddComponent } from './class/class-add/class-add.component';
 
 
 @NgModule({
@@ -33,6 +35,8 @@ import { MatSelectModule } from '@angular/material/select';
     HighlightDirective,
     TeacherAddComponent,
     TeacherListComponent,
+    ClassListComponent,
+    ClassAddComponent,
   ],
   imports: [
     BrowserModule,
