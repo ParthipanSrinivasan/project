@@ -6,17 +6,12 @@ import { Observable } from 'rxjs';
 })
 export class StudentService {
   studentrec:any=[];
-  class:any=[];
   constructor(){
     this.studentrec=
     [{id:123,firstname:"parth",lastname:"sokku",age:"22",sub:"english",class:"12th",phone:"9807867812"},
     {id:124,firstname:"parth",lastname:"sokku",age:"22",sub:"tamil",class:"11th",phone:"9807867812"},
     {id:125,firstname:"parth",lastname:"sokku",age:"22",sub:"history",class:"10th",phone:"9807867812"}];
-    this.class = [
-      {value: '10th', viewValue: '10th'},
-      {value: '11th', viewValue: '11th'},
-      {value: '12th', viewValue: '12th'},
-    ];
+    
   }
   tableList(){
     const obser=new Observable((val)=>{

@@ -39,7 +39,7 @@
         <mat-form-field>
           <mat-label>Class</mat-label>
           <mat-select formControlName="class" name="class">
-            <mat-option *ngFor="let student of class" [value]="student.value">
+            <mat-option *ngFor="let student of classservice.class" [value]="student.value">
               {{student.value}}
             </mat-option>
           </mat-select>

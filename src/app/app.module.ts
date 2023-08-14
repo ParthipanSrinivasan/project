@@ -4,9 +4,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginPageComponent } from './login-page/login-page.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MatIconModule} from '@angular/material/icon';
-import {MatButtonModule} from '@angular/material/button';
-import {MatInputModule} from '@angular/material/input';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule} from '@angular/material/form-field';
 import { ReactiveFormsModule} from '@angular/forms';
 import { StudentListComponet } from './student/student-list.component';
@@ -19,8 +19,9 @@ import { StudentPopComponent } from './student/student-pop/student-pop.component
 import { HighlightDirective } from './highlight.directive';
 import { TeacherAddComponent } from './teacher/teacher-add/teacher-add.component';
 import { TeacherListComponent } from './teacher/teacher-list.component';
-import {NgFor} from '@angular/common';
-import {MatSelectModule} from '@angular/material/select';
+import { NgFor } from '@angular/common';
+import { MatSelectModule } from '@angular/material/select';
+
 
 @NgModule({
   declarations: [

@@ -5,6 +5,7 @@ import { FormControl, FormGroup } from '@angular/forms';
 import { Validators } from '@angular/forms';
 import { StudentListComponet } from '../student-list.component';
 import { Router } from '@angular/router';
+import { ClassServicsService } from 'src/app/class/class-servics.service';
 
 @Component({
   selector: 'app-student-pop',
@@ -12,7 +13,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./student-pop.component.css']
 })
 export class StudentPopComponent implements OnInit{
-  constructor(private studentservice:StudentService,@Inject(MAT_DIALOG_DATA) public data: StudentListComponet,private router:Router){
+  constructor(private studentservice:StudentService,@Inject(MAT_DIALOG_DATA) public data: StudentListComponet,private router:Router,public classservice:ClassServicsService){
   
   }
   update=new FormGroup ({ firstname:new FormControl('',[Validators.required]),
@@ -25,7 +26,6 @@ export class StudentPopComponent implements OnInit{
   });
   errormessage:any=''
   condition:any=false;
-  class=this.studentservice.class;
   ngOnInit() {
     if(this.data!=null){
       this.studentservice.dialogComponent(this.data).subscribe((value:any)=>{
