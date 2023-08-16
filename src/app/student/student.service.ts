@@ -67,7 +67,7 @@ export class StudentService {
   }
   classAdd(add:any){
     const obser=new Observable((val:any)=>{
-
+      console.log(add);
     });
     return obser;
   }

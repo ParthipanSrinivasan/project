@@ -30,4 +30,11 @@ export class ClassServicsService {
     });
     return obser;
   }
+  classShow(){
+    const obser=new Observable((val:any)=>{
+      val.next(this.class);
+      val.complete();
+    });
+    return obser;
+  }
 }

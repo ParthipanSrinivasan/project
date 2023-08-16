@@ -18,6 +18,9 @@ export class ClassAddComponent {
       this.classService.classAdd(this.classadd.value).subscribe((value:any)=>{
         this.router.navigate(['class/list']);
       })
+      this.classService.classShow().subscribe((value:any)=>{
+        
+      })
     }
   }
 }
