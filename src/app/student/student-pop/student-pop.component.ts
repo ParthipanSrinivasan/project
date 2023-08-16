@@ -28,7 +28,7 @@ export class StudentPopComponent implements OnInit{
   });
   errormessage:any=''
   condition:any=false;
-  value:any
+  classadd:any
   ngOnInit() {
     if(this.data!=null){
       this.studentservice.dialogComponent(this.data).subscribe((value:any)=>{
@@ -61,8 +61,8 @@ export class StudentPopComponent implements OnInit{
   open(){
     const def=this.matDialog.open(ClassAddComponent,{height:"35%",width:"30%",disableClose: true}
     );
-    def.afterClosed().subscribe((value:any)=>{
-      console.log(value);
+    def.afterClosed().subscribe((val:any)=>{
+       this.classadd=val.data.value;
     });
   }
 }
