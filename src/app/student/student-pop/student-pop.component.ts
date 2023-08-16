@@ -59,10 +59,10 @@ export class StudentPopComponent implements OnInit{
      }
   }
   open(){
-    const def=this.matDialog.open(ClassAddComponent,{height:"35%",width:"30%"}
+    const def=this.matDialog.open(ClassAddComponent,{height:"35%",width:"30%",disableClose: true}
     );
-    this.studentservice.classAdd(def).subscribe((value:any)=>{
-      
+    def.afterClosed().subscribe((value:any)=>{
+      console.log(value);
     });
   }
 }
