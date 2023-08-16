@@ -33,6 +33,7 @@ export class StudentPopComponent implements OnInit{
     if(this.data!=null){
       this.studentservice.dialogComponent(this.data).subscribe((value:any)=>{
         this.update.patchValue(value);
+        this.classMethod();
       },error=>{
         this.errormessage=error.error;
       })
@@ -62,7 +63,12 @@ export class StudentPopComponent implements OnInit{
     const def=this.matDialog.open(ClassAddComponent,{height:"35%",width:"30%",disableClose: true}
     );
     def.afterClosed().subscribe((val:any)=>{
-       this.classadd=val.data.value;
+       this.classMethod();
     });
+  }
+  classMethod(){
+    this.classservice.classShow().subscribe((val:any)=>{
+      this.classadd=val;
+    })
   }
 }

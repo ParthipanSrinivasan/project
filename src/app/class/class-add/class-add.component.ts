@@ -19,7 +19,6 @@ export class ClassAddComponent {
     if(this.classadd.valid){
       this.classService.classAdd(this.classadd.value).subscribe((value:any)=>{
         this.dialogRef.close({ data:this.classadd.value });
-        this.router.navigate(['class/list']);
       })
     }
   }
