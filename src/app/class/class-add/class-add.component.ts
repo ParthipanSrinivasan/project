@@ -18,7 +18,7 @@ export class ClassAddComponent {
     this.condition=true;
     if(this.classadd.valid){
       this.classService.classAdd(this.classadd.value).subscribe((value:any)=>{
-        this.dialogRef.close({ data:this.classadd.value });
+        this.dialogRef.close(this.classadd.value);
       })
     }
   }

@@ -29,6 +29,7 @@ export class StudentPopComponent implements OnInit{
   errormessage:any=''
   condition:any=false;
   classadd:any
+  val1:any=""
   ngOnInit() {
     if(this.data!=null){
       this.studentservice.dialogComponent(this.data).subscribe((value:any)=>{
@@ -38,9 +39,13 @@ export class StudentPopComponent implements OnInit{
         this.errormessage=error.error;
       })
     }
+    else{
+      this.classMethod();
+    }
   }
   onUpdate(){
     this.condition=true;
+    console.log(this.update.value)
     if(this.update.valid){
       this.studentservice.studentEditSave(this.update.value).subscribe((value:any)=>{
         this.router.navigate(['/student/list']);
@@ -63,6 +68,7 @@ export class StudentPopComponent implements OnInit{
     const def=this.matDialog.open(ClassAddComponent,{height:"35%",width:"30%",disableClose: true}
     );
     def.afterClosed().subscribe((val:any)=>{
+      this.val1=val;
        this.classMethod();
     });
   }
