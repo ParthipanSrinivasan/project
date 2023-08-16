@@ -15,7 +15,7 @@ import { ClassAddComponent } from 'src/app/class/class-add/class-add.component';
   styleUrls: ['./student-pop.component.css']
 })
 export class StudentPopComponent implements OnInit{
-  constructor(private studentservice:StudentService,@Inject(MAT_DIALOG_DATA) public data: StudentListComponet,private router:Router,public classservice:ClassServicsService,public matDialog:MatDialog){
+  constructor(private studentservice:StudentService,@Inject(MAT_DIALOG_DATA) public data: StudentListComponet,private router:Router,public classservice:ClassServicsService,public matDialog:MatDialog ){
   
   }
   update=new FormGroup ({ firstname:new FormControl('',[Validators.required]),
@@ -28,7 +28,7 @@ export class StudentPopComponent implements OnInit{
   });
   errormessage:any=''
   condition:any=false;
-  value:any=this.classservice.class
+  value:any
   ngOnInit() {
     if(this.data!=null){
       this.studentservice.dialogComponent(this.data).subscribe((value:any)=>{
@@ -59,7 +59,10 @@ export class StudentPopComponent implements OnInit{
      }
   }
   open(){
-    this.matDialog.open(ClassAddComponent,{height:"35%",width:"30%"}
+    const def=this.matDialog.open(ClassAddComponent,{height:"35%",width:"30%"}
     );
+    this.studentservice.classAdd(def).subscribe((value:any)=>{
+      
+    });
   }
 }

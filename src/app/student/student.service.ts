@@ -65,4 +65,10 @@ export class StudentService {
     })
     return obser;
   }
+  classAdd(add:any){
+    const obser=new Observable((val:any)=>{
+
+    });
+    return obser;
+  }
 }
