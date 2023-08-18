@@ -25,6 +25,8 @@ import { ClassListComponent } from './class/class-list.component';
 import { ClassAddComponent } from './class/class-add/class-add.component';
 import { MatPaginatorModule} from '@angular/material/paginator';
 import { MatMenuModule} from '@angular/material/menu';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatNativeDateModule} from '@angular/material/core';
 
 
 
@@ -58,6 +60,8 @@ import { MatMenuModule} from '@angular/material/menu';
     MatSelectModule,
     MatPaginatorModule,
     MatMenuModule,
+    MatDatepickerModule,
+    MatNativeDateModule
   ],
   providers: [],
   bootstrap: [AppComponent]

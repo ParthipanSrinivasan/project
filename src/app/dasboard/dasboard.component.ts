@@ -12,6 +12,8 @@ export class DasboardComponent {
   ngOnInit(){
     this.loginservice.showUser().subscribe((value:any)=>{
       this.loginName=value;
+    },(error:any)=>{
+      
     });
   }
   logout(){

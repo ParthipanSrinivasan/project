@@ -8,6 +8,8 @@ import { Router } from '@angular/router';
 import { ClassServicsService } from 'src/app/class/class-servics.service';
 import { MatDialog } from '@angular/material/dialog';
 import { ClassAddComponent } from 'src/app/class/class-add/class-add.component';
+import { DateAdapter } from '@angular/material/core';
+
 
 @Component({
   selector: 'app-student-pop',
@@ -15,12 +17,13 @@ import { ClassAddComponent } from 'src/app/class/class-add/class-add.component';
   styleUrls: ['./student-pop.component.css']
 })
 export class StudentPopComponent implements OnInit{
-  constructor(private studentservice:StudentService,@Inject(MAT_DIALOG_DATA) public data: StudentListComponet,private router:Router,public classservice:ClassServicsService,public matDialog:MatDialog ){
+  constructor(private studentservice:StudentService,@Inject(MAT_DIALOG_DATA) public data: StudentListComponet,private router:Router,public classservice:ClassServicsService,public matDialog:MatDialog,private dateAdapter: DateAdapter<Date> ){
   
   }
   update=new FormGroup ({ firstname:new FormControl('',[Validators.required]),
   lastname:new FormControl('',[Validators.required]),
   age:new FormControl('',[Validators.required]),
+  date:new FormControl(),
   sub:new FormControl(''),
   class:new FormControl(''),
   phone:new FormControl('',[Validators.required]),
@@ -51,6 +54,7 @@ export class StudentPopComponent implements OnInit{
     return;
   }
   create(){
+    const d = new Date();
     this.condition=true;
     if(this.update.valid){
       this.studentservice.dialogCreate(this.update.value).subscribe(value=>{

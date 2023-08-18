@@ -15,11 +15,12 @@ export class StudentListComponet implements OnInit {
   student=new FormGroup ({ firstname:new FormControl('',[Validators.required]),
   lastname:new FormControl('',[Validators.required]),
   age:new FormControl('',[Validators.required]),
+  date:new FormControl(''),
   sub:new FormControl(''),
   class:new FormControl(''),
   phone:new FormControl('',[Validators.required]),
   });
-  displayedColumns: string[] = ["index","id","firstname","lastname","age","sub","class","phone",'action'];
+  displayedColumns: string[] = ["index","id","firstname","lastname","age","date","sub","class","phone",'action'];
   dataSource:any;
   condition:any=false;
   length = 50;
