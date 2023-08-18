@@ -41,7 +41,6 @@ export class StudentPopComponent implements OnInit{
   }
   onUpdate(){
     this.condition=true;
-    console.log(this.update.value)
     if(this.update.valid){
       this.studentservice.studentEditSave(this.update.value).subscribe((value:any)=>{
         this.router.navigate(['/student/list']);

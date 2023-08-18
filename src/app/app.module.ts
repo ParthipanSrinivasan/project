@@ -23,6 +23,9 @@ import { NgFor } from '@angular/common';
 import { MatSelectModule } from '@angular/material/select';
 import { ClassListComponent } from './class/class-list.component';
 import { ClassAddComponent } from './class/class-add/class-add.component';
+import { MatPaginatorModule} from '@angular/material/paginator';
+import { MatMenuModule} from '@angular/material/menu';
+
 
 
 @NgModule({
@@ -52,7 +55,9 @@ import { ClassAddComponent } from './class/class-add/class-add.component';
     RouterModule,
     MatDialogModule,
     NgFor,
-    MatSelectModule
+    MatSelectModule,
+    MatPaginatorModule,
+    MatMenuModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

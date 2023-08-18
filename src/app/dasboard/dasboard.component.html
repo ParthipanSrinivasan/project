@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-white bg-light navbar-inverse navbar-right">
     <div class="container">
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-bs-target="#mynavbar"></button>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-bs-target="#mynavbar" aria-controls="mynavbar" aria-expanded="false" aria-label="Toggle navigation"></button>
         <div class="collapse navbar-collapse " id="mynavbar">
             <ul class="nav navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
@@ -11,6 +11,14 @@
                 </li>
                 <li class="nav-item ">
                     <a href="/class/list" class="nav-link">class</a>
+                </li>
+                <li>
+                    <button mat-button [matMenuTriggerFor]="menu">Droupdown</button>
+                    <mat-menu #menu="matMenu">
+                    <button mat-menu-item [routerLink]="['/student/list']">Student</button>
+                    <button mat-menu-item [routerLink]="['/teacher/list']">Teacher</button>
+                    <button mat-menu-item [routerLink]="['/class/list']">Class</button>
+</mat-menu>
                 </li>
             </ul>
             <div class=" my-2 my-lg-0">
