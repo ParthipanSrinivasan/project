@@ -18,11 +18,14 @@
                     <button mat-menu-item [routerLink]="['/student/list']">Student</button>
                     <button mat-menu-item [routerLink]="['/teacher/list']">Teacher</button>
                     <button mat-menu-item [routerLink]="['/class/list']">Class</button>
-</mat-menu>
+                    </mat-menu>
                 </li>
             </ul>
             <div class=" my-2 my-lg-0">
                 <button mat-raised-button color="warn" class=" my-2 my-sm-0" [routerLink]="['/login']" type="submit" (click)="logout()">logout</button>
+            </div>
+            <div class="my-2 my-lg-0 mx-2">
+                <h3 class=" my-2 my-sm-0">Login:{{loginservice.loginName.id}} <br> Phone:{{loginservice.loginName.phone}}</h3>
             </div>
         </div>
     </div>

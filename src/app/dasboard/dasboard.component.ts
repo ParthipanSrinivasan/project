@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { LoginServiceService } from '../login-page/login-service.service';
 
 @Component({
   selector: 'app-dasboard',
@@ -6,6 +7,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./dasboard.component.css']
 })
 export class DasboardComponent {
+  constructor(public loginservice:LoginServiceService){}
   logout(){
     localStorage.removeItem("token");
   }
