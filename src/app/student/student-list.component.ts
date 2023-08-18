@@ -19,7 +19,7 @@ export class StudentListComponet implements OnInit {
   class:new FormControl(''),
   phone:new FormControl('',[Validators.required]),
   });
-  displayedColumns: string[] = ["id","firstname","lastname","age","sub","class","phone",'action'];
+  displayedColumns: string[] = ["index","id","firstname","lastname","age","sub","class","phone",'action'];
   dataSource:any;
   condition:any=false;
   length = 50;
@@ -30,6 +30,7 @@ export class StudentListComponet implements OnInit {
   ngOnInit(){
     this.studentservive.tableList().subscribe((value)=>{
     this.dataSource=value;
+    
     });
   }
   open(row:any){
@@ -43,6 +44,8 @@ export class StudentListComponet implements OnInit {
   }
   getServerData(e:PageEvent){
     this.studentservive.ngAfter(e.pageSize,e.pageIndex).subscribe(element=>{
+      this.pageSize=e.pageSize;
+      this.pageIndex=e.pageIndex;
       this.dataSource=element;
     }); 
   }

@@ -6,6 +6,8 @@ import { Observable } from 'rxjs';
 })
 export class StudentService {
   studentrec:any=[];
+  pageIndex:any;
+  pageSize:any;
   constructor(){
     this.studentrec=
     [{id:123,firstname:"parth",lastname:"sokku",age:"22",sub:"english",class:"12th",phone:"9807867812"},
@@ -22,12 +24,17 @@ export class StudentService {
     {id:125,firstname:"parth",lastname:"sokku",age:"22",sub:"history",class:"10th",phone:"9807867812"},
     {id:123,firstname:"parth",lastname:"sokku",age:"22",sub:"english",class:"12th",phone:"9807867812"},
     {id:124,firstname:"parth",lastname:"sokku",age:"22",sub:"tamil",class:"11th",phone:"9807867812"},
+    {id:123,firstname:"parth",lastname:"sokku",age:"22",sub:"english",class:"12th",phone:"9807867812"},
+    {id:124,firstname:"parth",lastname:"sokku",age:"22",sub:"tamil",class:"11th",phone:"9807867812"},
+    {id:125,firstname:"parth",lastname:"sokku",age:"22",sub:"history",class:"10th",phone:"9807867812"},
+    {id:123,firstname:"parth",lastname:"sokku",age:"22",sub:"english",class:"12th",phone:"9807867812"},
+    {id:124,firstname:"parth",lastname:"sokku",age:"22",sub:"tamil",class:"11th",phone:"9807867812"},
     {id:125,firstname:"parth",lastname:"sokku",age:"22",sub:"history",class:"10th",phone:"9807867812"}];
     
   }
   tableList(){
     const obser=new Observable((val)=>{
-      val.next(this.studentrec);
+      val.next(this.studentrec.slice(0,10));
       val.complete();
     })
   return obser;
@@ -79,6 +86,8 @@ export class StudentService {
   }
   ngAfter(pageSize:any,pageIndex:any){
     const obser=new Observable((val)=>{
+      this.pageIndex=pageIndex;
+      this.pageSize=pageSize;
       val.next(this.studentrec.slice((pageIndex*pageSize),
             (pageIndex*pageSize)+pageSize));
       val.complete();
