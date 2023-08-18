@@ -64,8 +64,10 @@ export class StudentPopComponent implements OnInit{
     const def=this.matDialog.open(ClassAddComponent,{height:"35%",width:"30%",disableClose: true}
     );
     def.afterClosed().subscribe((val:any)=>{
-      this.update.controls["class"].setValue(val.value);
-       this.classMethod();
+      if(val!=""){
+        this.update.controls["class"].setValue(val.value);
+        this.classMethod();
+      }
     });
   }
   classMethod(){
