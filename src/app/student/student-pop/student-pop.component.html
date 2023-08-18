@@ -42,7 +42,7 @@
             <mat-option *ngFor="let student of classadd" [value]="student.value">
               {{student.value}}
             </mat-option>
-            <mat-option  [value]="val1" (click)="open()">classadd</mat-option>
+            <button (click)="open()" class="btn btn-outline-primary">Add class</button>
           </mat-select>
        </mat-form-field>
       </div>
