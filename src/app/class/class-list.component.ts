@@ -15,7 +15,7 @@ export class ClassListComponent implements OnInit{
   constructor(private classservice:ClassServicsService,public matDialog:MatDialog){}
   ngOnInit(){
     this.classservice.showList().subscribe(value=>{
-      this.dataSource=value
+      this.dataSource=value;
     });
   }
   open(){

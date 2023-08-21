@@ -30,9 +30,15 @@ export class StudentService {
     {id:125,firstname:"parth",lastname:"sokku",age:"22",sub:"history",class:"10th",phone:"9807867812",date:'2001-04-14'}];
     
   }
-  tableList(){
+  tableList(value:any){
     const obser=new Observable((val)=>{
-      val.next(this.studentrec.slice(0,10));
+      const student:any=[]
+      this.studentrec.forEach((element:any) => {
+        if(element.class==value){
+          student.push(element);
+        }
+      });
+      val.next(student);
       val.complete();
     })
   return obser;

@@ -11,15 +11,23 @@
         <div class="col-12-lg">
          <table>
           <thead>
+            <tr>
             <th>Value</th>
             <th>ViewValue</th>
+            <th>record</th>
+            </tr>
           </thead>
-          <tbody *ngFor="let vale of dataSource">
-            <td>{{vale.value}}</td>
-            <td>{{vale.viewValue}}</td>
+          <tbody>
+            <tr  *ngFor="let vale of dataSource">
+              <td>{{vale.value}}</td>
+              <td>{{vale.viewValue}}</td>
+              <td><app-student-list [myinputMsg]="vale.viewValue"></app-student-list></td>
+            </tr>
+            <tr>
+            </tr>
           </tbody>
          </table>
-        <app-student-list [myinputMsg]="myInputMessage"></app-student-list>
+        
         </div>
     </div>
 </div>

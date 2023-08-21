@@ -30,10 +30,8 @@ export class StudentListComponet implements OnInit {
   pageSizeOptions = [5, 10, 25];
   constructor(public studentservive:StudentService, public matDialog:MatDialog ){ }
   ngOnInit(){
-    console.log(this.myinputMsg);
-    this.studentservive.tableList().subscribe((value)=>{
+    this.studentservive.tableList(this.myinputMsg).subscribe((value)=>{
     this.dataSource=value;
-    
     });
   }
   open(row:any){
