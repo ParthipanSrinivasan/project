@@ -8,6 +8,7 @@ import { Router } from '@angular/router';
 import { ClassServicsService } from 'src/app/class/class-servics.service';
 import { MatDialog } from '@angular/material/dialog';
 import { ClassAddComponent } from 'src/app/class/class-add/class-add.component';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-student-pop',
@@ -44,7 +45,9 @@ export class StudentPopComponent implements OnInit{
   onUpdate(){
     this.condition=true;
     if(this.update.valid){
-      this.studentservice.studentEditSave(this.update.value).subscribe((value:any)=>{
+      const dateChange=this.update.value;
+      dateChange["date"]=this.datePicker(dateChange.date);
+      this.studentservice.studentEditSave(dateChange).subscribe((value:any)=>{
         this.router.navigate(['/student/list']);
       },(error:any)=>{
         this.errormessage=error.error;
@@ -54,8 +57,10 @@ export class StudentPopComponent implements OnInit{
   }
   create(){
     this.condition=true;
+    const dateChange=this.update.value;
+    dateChange["date"]=this.datePicker(dateChange.date);
     if(this.update.valid){
-      this.studentservice.dialogCreate(this.update.value).subscribe(value=>{
+      this.studentservice.dialogCreate(dateChange).subscribe(value=>{
         this.router.navigate(['/student/list']);
       });
       return;
@@ -76,4 +81,14 @@ export class StudentPopComponent implements OnInit{
       this.classadd=val;
     })
   }
+  datePicker(date:any){
+    try {
+      const myDate = moment(date,"MMM-DD-YYYY").format('YYYY-MM-DD');
+      return myDate;
+    } catch(e) {
+      console.log(e)
+      return e; 
+    }
+  }
+  
 }
