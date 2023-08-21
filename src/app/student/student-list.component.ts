@@ -5,6 +5,7 @@ import { Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { PageEvent } from '@angular/material/paginator';
 import { StudentPopComponent } from './student-pop/student-pop.component';
+import { ClassServicsService } from '../class/class-servics.service';
 
 @Component({
   selector: 'app-student-list',
@@ -28,11 +29,15 @@ export class StudentListComponet implements OnInit {
   pageSize = 10;
   pageIndex = 0;
   pageSizeOptions = [5, 10, 25];
-  constructor(public studentservive:StudentService, public matDialog:MatDialog ){ }
+  constructor(public studentservive:StudentService, public matDialog:MatDialog,public classService:ClassServicsService ){
+   }
   ngOnInit(){
-    this.studentservive.tableList(this.myinputMsg).subscribe((value)=>{
+    if(this.myinputMsg!=""){
+    const mymessage=this.classService.class.find((element:any)=>(element.id==this.myinputMsg));
+    this.studentservive.tableList(mymessage).subscribe((value)=>{
     this.dataSource=value;
     });
+    }
   }
   open(row:any){
     this.matDialog.open(StudentPopComponent,{height: '95%',

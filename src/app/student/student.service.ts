@@ -30,11 +30,11 @@ export class StudentService {
     {id:125,firstname:"parth",lastname:"sokku",age:"22",sub:"history",class:"10th",phone:"9807867812",date:'2001-04-14'}];
     
   }
-  tableList(value:any){
+  tableList(valu:any){
     const obser=new Observable((val)=>{
       const student:any=[]
       this.studentrec.forEach((element:any) => {
-        if(element.class==value){
+        if(element.class==valu.value){
           student.push(element);
         }
       });

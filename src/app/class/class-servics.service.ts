@@ -8,9 +8,9 @@ export class ClassServicsService {
   class:any=[];
   constructor() { 
     this.class = [
-      {value: '10th', viewValue: '10th'},
-      {value: '11th', viewValue: '11th'},
-      {value: '12th', viewValue: '12th'},
+      {id:"123",value: '10th', viewValue: '10th'},
+      {id:"124",value: '11th', viewValue: '11th'},
+      {id:"125",value: '12th', viewValue: '12th'},
     ];
   }
   showList(){
@@ -23,6 +23,9 @@ export class ClassServicsService {
   classAdd(value:any){
     const obser=new Observable((val:any)=>{
       value['viewValue']=value.value;
+      if(!("id" in value)){
+        value["id"]=(Math.floor(Math.random()*100));
+      }
       this.class.push(value);
       val.next(value);
       val.complete();
