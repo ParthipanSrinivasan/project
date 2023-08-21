@@ -57,9 +57,9 @@ export class StudentPopComponent implements OnInit{
   }
   create(){
     this.condition=true;
-    const dateChange=this.update.value;
-    dateChange["date"]=this.datePicker(dateChange.date);
     if(this.update.valid){
+      const dateChange=this.update.value;
+      dateChange["date"]=this.datePicker(dateChange.date);
       this.studentservice.dialogCreate(dateChange).subscribe(value=>{
         this.router.navigate(['/student/list']);
       });

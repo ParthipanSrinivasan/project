@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Input } from '@angular/core';
 import { StudentService } from './student.service';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Validators } from '@angular/forms';
@@ -12,6 +12,7 @@ import { StudentPopComponent } from './student-pop/student-pop.component';
   styleUrls: ['./student-list.component.css']
 })
 export class StudentListComponet implements OnInit {
+  @Input() myinputMsg:string="";
   student=new FormGroup ({ firstname:new FormControl('',[Validators.required]),
   lastname:new FormControl('',[Validators.required]),
   age:new FormControl('',[Validators.required]),
@@ -29,6 +30,7 @@ export class StudentListComponet implements OnInit {
   pageSizeOptions = [5, 10, 25];
   constructor(public studentservive:StudentService, public matDialog:MatDialog ){ }
   ngOnInit(){
+    console.log(this.myinputMsg);
     this.studentservive.tableList().subscribe((value)=>{
     this.dataSource=value;
     

@@ -1,4 +1,4 @@
-import { Component,OnInit } from '@angular/core';
+import { Component,Input,OnInit } from '@angular/core';
 import { ClassServicsService } from './class-servics.service';
 import { MatDialog } from '@angular/material/dialog';
 import { ClassAddComponent } from './class-add/class-add.component';
@@ -8,9 +8,10 @@ import { ClassAddComponent } from './class-add/class-add.component';
   templateUrl: './class-list.component.html',
   styleUrls: ['./class-list.component.css']
 })
-export class ClassListComponent implements OnInit{
+export class ClassListComponent implements OnInit{  
   displayedColumns: string[] = ["value","viewValue"];
   dataSource:any;
+  myInputMessage:any="hi ever body";
   constructor(private classservice:ClassServicsService,public matDialog:MatDialog){}
   ngOnInit(){
     this.classservice.showList().subscribe(value=>{

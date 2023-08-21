@@ -21,6 +21,7 @@
               <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
                 <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
         </table>
+        <app-student-list [myinputMsg]="myInputMessage"></app-student-list>
         </div>
     </div>
 </div>
