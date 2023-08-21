@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import * as moment from 'moment';
 
 @Injectable({
   providedIn: 'root'
@@ -61,7 +62,7 @@ export class StudentService {
           elemen["sub"]=editvalue.sub
           elemen["class"]=editvalue.class
           elemen["phone"]=editvalue.phone
-          elemen["date"]=editvalue.date
+          elemen["date"]=this.datePicker(editvalue.date);
           val.next(elemen);
           val.complete();
         }
@@ -77,6 +78,7 @@ export class StudentService {
       if(("id" in create)){
         create["id"]=(Math.floor(Math.random()*10000));
       }
+      create["date"]=this.datePicker(create.date)
       this.studentrec.push(create);
       val.next(this.studentrec);
       val.complete();
@@ -90,5 +92,9 @@ export class StudentService {
       val.complete();
     });
     return obser;
+  }
+  datePicker(date:any){
+    const myDate = moment(date).format('YYYY-MM-DD');
+    return myDate;
   }
 }

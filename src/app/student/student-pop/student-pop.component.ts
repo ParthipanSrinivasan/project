@@ -8,17 +8,16 @@ import { Router } from '@angular/router';
 import { ClassServicsService } from 'src/app/class/class-servics.service';
 import { MatDialog } from '@angular/material/dialog';
 import { ClassAddComponent } from 'src/app/class/class-add/class-add.component';
-import { DateAdapter } from '@angular/material/core';
-
 
 @Component({
   selector: 'app-student-pop',
   templateUrl: './student-pop.component.html',
-  styleUrls: ['./student-pop.component.css']
+  styleUrls: ['./student-pop.component.css'],
+  
 })
 export class StudentPopComponent implements OnInit{
-  constructor(private studentservice:StudentService,@Inject(MAT_DIALOG_DATA) public data: StudentListComponet,private router:Router,public classservice:ClassServicsService,public matDialog:MatDialog,private dateAdapter: DateAdapter<Date> ){
-  
+  constructor(private studentservice:StudentService,@Inject(MAT_DIALOG_DATA) public data: StudentListComponet,private router:Router,public classservice:ClassServicsService,public matDialog:MatDialog){
+    
   }
   update=new FormGroup ({ firstname:new FormControl('',[Validators.required]),
   lastname:new FormControl('',[Validators.required]),
@@ -31,7 +30,7 @@ export class StudentPopComponent implements OnInit{
   });
   errormessage:any=''
   condition:any=false;
-  classadd:any
+  classadd:any;
   ngOnInit() {
     this.classMethod();
     if(this.data!=null){
@@ -54,7 +53,6 @@ export class StudentPopComponent implements OnInit{
     return;
   }
   create(){
-    const d = new Date();
     this.condition=true;
     if(this.update.valid){
       this.studentservice.dialogCreate(this.update.value).subscribe(value=>{
