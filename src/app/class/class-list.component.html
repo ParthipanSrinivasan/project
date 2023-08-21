@@ -18,11 +18,15 @@
             </tr>
           </thead>
           <tbody>
-            <tr  *ngFor="let vale of dataSource">
-              <td>{{vale.value}}</td>
-              <td>{{vale.viewValue}}</td>
-              <td><app-student-list [myinputMsg]="vale.viewValue"></app-student-list></td>
-            </tr>
+            <ng-container  *ngFor="let vale of dataSource">
+              <tr>
+                <td>{{vale.value}}</td>
+                <td>{{vale.viewValue}}</td>
+              </tr>
+              <tr>
+                <td><app-student-list [myinputMsg]="vale.viewValue"></app-student-list></td>
+              </tr>
+            </ng-container>
             <tr>
             </tr>
           </tbody>
