@@ -6,6 +6,7 @@ import { Observable } from 'rxjs';
 })
 export class StudentService {
   studentrec:any=[];
+  student:any="";
   constructor(){
     this.studentrec=
     [{id:123,firstname:"parth",lastname:"sokku",age:"22",sub:"english",class:"12th",phone:"9807867812",date:'2001-04-14'},
@@ -33,20 +34,23 @@ export class StudentService {
   tableList(valu:any){
     const obser=new Observable((val)=>{
       const student:any=[]
-      this.studentrec.forEach((element:any) => {
-        if(element.class==valu.value){
-          student.push(element);
-        }
-      });
-      val.next(student);
-      val.complete();
+      this.student=valu;
+      if(valu.mymessage!=""){
+        this.studentrec.forEach((element:any) => {
+          if(element.class==valu.mymessage.value){
+            student.push(element);
+            val.next(student);
+            val.complete();
+          }
+        });
+      }
     })
   return obser;
   }
-  tableShow(pageSize:any,pageIndex:any){
+  tableShow(value:any){
     const obser=new Observable((val:any)=>{
-      val.next(this.studentrec.slice((pageIndex*pageSize),
-            (pageIndex*pageSize)+pageSize));
+      val.next(this.studentrec.slice((value.pageIndex*value.pageSize),
+      (value.pageIndex*value.pageSize)+value.pageSize));
       val.complete();
     });
     return obser

@@ -25,6 +25,7 @@ export class StudentListComponet implements OnInit {
   displayedColumns: string[] = ["index","id","firstname","lastname","age","date","sub","class","phone",'action'];
   dataSource:any;
   condition:any=false;
+  pagination:any=[];
   length = 50;
   pageSize = 10;
   pageIndex = 0;
@@ -32,14 +33,17 @@ export class StudentListComponet implements OnInit {
   constructor(public studentservive:StudentService, public matDialog:MatDialog,public classService:ClassServicsService ){
    }
   ngOnInit(){
+    this.pagination["pageSize"]=this.pageSize;
+    this.pagination["pageIndex"]=this.pageIndex;
     if(this.myinputMsg!=""){
     const mymessage=this.classService.class.find((element:any)=>(element.id==this.myinputMsg));
-    this.studentservive.tableList(mymessage).subscribe((value)=>{
+      this.pagination["mymessage"]=mymessage;
+    this.studentservive.tableList(this.pagination).subscribe((value)=>{
     this.dataSource=value;
     });
-    }
+  }
     else{
-      this.studentservive.tableShow(this.pageSize,this.pageIndex).subscribe((value:any)=>{
+      this.studentservive.tableShow(this.pagination).subscribe((value:any)=>{
         this.dataSource=value;
       });
     }
