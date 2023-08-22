@@ -25,7 +25,7 @@ export class ClassServicsService {
       value['viewValue']=value.value;
       if(!("id" in value)){
         value["id"]=(Math.floor(Math.random()*100));
-      }
+      } 
       this.class.push(value);
       val.next(value);
       val.complete();

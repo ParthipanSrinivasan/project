@@ -38,6 +38,11 @@ export class StudentListComponet implements OnInit {
     this.dataSource=value;
     });
     }
+    else{
+      this.studentservive.tableShow().subscribe((value:any)=>{
+        this.dataSource=value;
+      });
+    }
   }
   open(row:any){
     this.matDialog.open(StudentPopComponent,{height: '95%',
