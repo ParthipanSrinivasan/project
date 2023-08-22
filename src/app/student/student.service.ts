@@ -43,9 +43,10 @@ export class StudentService {
     })
   return obser;
   }
-  tableShow(){
+  tableShow(pageSize:any,pageIndex:any){
     const obser=new Observable((val:any)=>{
-      val.next(this.studentrec)
+      val.next(this.studentrec.slice((pageIndex*pageSize),
+            (pageIndex*pageSize)+pageSize));
       val.complete();
     });
     return obser
@@ -94,14 +95,6 @@ export class StudentService {
       val.next(this.studentrec);
       val.complete();
     })
-    return obser;
-  }
-  ngAfter(pageSize:any,pageIndex:any){
-    const obser=new Observable((val)=>{
-      val.next(this.studentrec.slice((pageIndex*pageSize),
-            (pageIndex*pageSize)+pageSize));
-      val.complete();
-    });
     return obser;
   }
 }

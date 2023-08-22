@@ -39,7 +39,7 @@ export class StudentListComponet implements OnInit {
     });
     }
     else{
-      this.studentservive.tableShow().subscribe((value:any)=>{
+      this.studentservive.tableShow(this.pageSize,this.pageIndex).subscribe((value:any)=>{
         this.dataSource=value;
       });
     }
@@ -54,10 +54,8 @@ export class StudentListComponet implements OnInit {
     width:'40%'})
   }
   getServerData(e:PageEvent){
-    this.studentservive.ngAfter(e.pageSize,e.pageIndex).subscribe(element=>{
       this.pageSize=e.pageSize;
       this.pageIndex=e.pageIndex;
-      this.dataSource=element;
-    }); 
+      this.ngOnInit();
   }
 }
