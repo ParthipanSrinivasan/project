@@ -6,7 +6,6 @@ import { Observable } from 'rxjs';
 })
 export class StudentService {
   studentrec:any=[];
-  student:any=[]
   constructor(){
     this.studentrec=
     [{id:123,firstname:"parth",lastname:"sokku",age:"22",sub:"english",class:"12th",class_id:"3",phone:"9807867812",date:'2001-04-14'},
@@ -37,15 +36,21 @@ export class StudentService {
       this.studentrec.forEach((element:any) => {
       if(element.class_id==valu.class_id){
           log.push(element)
-          val.next(log);
-          val.complete();
           }
         });
-      val.next(this.studentrec.slice((valu.pageIndex*valu.pageSize),
-      (valu.pageIndex*valu.pageSize)+valu.pageSize));
-      val.complete();
+      val.next({pagination:log.slice((valu.pageIndex*valu.pageSize),
+        (valu.pageIndex*valu.pageSize)+valu.pageSize)});
+        val.complete();
     })
   return obser;
+  }
+  tableShow(page:any){
+    const obser=new Observable((val:any)=>{
+      val.next(this.studentrec.slice((page.pageIndex*page.pageSize),
+        (page.pageIndex*page.pageSize)+page.pageSize));
+        val.complete();
+    })
+    return obser;
   }
   dialogComponent(dialog:any){
     const obser=new Observable((val)=>{

@@ -1,4 +1,4 @@
-import { Component, OnInit,Input } from '@angular/core';
+import { Component, OnInit,Input} from '@angular/core';
 import { StudentService } from './student.service';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Validators } from '@angular/forms';
@@ -37,12 +37,17 @@ export class StudentListComponet implements OnInit {
     this.pagination["pageIndex"]=this.pageIndex;
     if(this.myinputMsg!=""){
     this.pagination["class_id"]=this.myinputMsg;
-    this.studentservive.tableList(this.pagination).subscribe((value)=>{
-    this.dataSource=value;
+    this.studentservive.tableList(this.pagination).subscribe((value:any)=>{
+    this.dataSource=value.pagination;
     });
-  }
-  }
-  open(row:any){
+    }
+    else{
+      this.studentservive.tableShow(this.pagination).subscribe((value:any)=>{
+        this.dataSource=value;
+      });
+    }
+  } 
+   open(row:any){
     this.matDialog.open(StudentPopComponent,{height: '95%',
     width:'35%',data:row.id});
   }
