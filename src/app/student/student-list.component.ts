@@ -41,12 +41,14 @@ export class StudentListComponet implements OnInit {
     this.dataSource=value.pagination;
     });
     }
-    else{
+  } 
+  ngDoCheck(){
+    if(this.myinputMsg==""){
       this.studentservive.tableShow(this.pagination).subscribe((value:any)=>{
         this.dataSource=value;
       });
     }
-  } 
+  }
    open(row:any){
     this.matDialog.open(StudentPopComponent,{height: '95%',
     width:'35%',data:row.id});
