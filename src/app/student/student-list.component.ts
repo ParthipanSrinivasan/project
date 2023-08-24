@@ -36,22 +36,15 @@ export class StudentListComponet implements OnInit {
     this.pagination["pageSize"]=this.pageSize;
     this.pagination["pageIndex"]=this.pageIndex;
     if(this.myinputMsg!=""){
-    const mymessage=this.classService.class.find((element:any)=>(element.id==this.myinputMsg));
-      this.pagination["mymessage"]=mymessage;
+    this.pagination["class_id"]=this.myinputMsg;
     this.studentservive.tableList(this.pagination).subscribe((value)=>{
     this.dataSource=value;
     });
   }
-    else{
-      this.studentservive.tableShow(this.pagination).subscribe((value:any)=>{
-        this.dataSource=value;
-      });
-    }
   }
   open(row:any){
     this.matDialog.open(StudentPopComponent,{height: '95%',
-    width:'35%',data:row.id}
-    );
+    width:'35%',data:row.id});
   }
   create(){
     this.matDialog.open(StudentPopComponent,{height: '95%',
