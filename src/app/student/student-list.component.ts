@@ -22,7 +22,7 @@ export class StudentListComponet implements OnInit {
   class:new FormControl(''),
   phone:new FormControl('',[Validators.required]),
   });
-  displayedColumns: string[] = ["index","id","firstname","lastname","age","date","sub","class","phone",'action'];
+  displayedColumns: string[] = ["index","id","firstname","lastname","age","gender","date","sub","class","phone",'action'];
   dataSource:any;
   condition:any=false;
   pagination:any=[];
@@ -40,7 +40,7 @@ export class StudentListComponet implements OnInit {
     this.studentservive.tableList(this.pagination).subscribe((value:any)=>{
     this.dataSource=value.pagination;
     });
-    }
+    } 
   } 
   ngDoCheck(){
     if(this.myinputMsg==""){

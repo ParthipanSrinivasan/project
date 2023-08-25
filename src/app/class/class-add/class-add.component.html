@@ -1,7 +1,10 @@
 <form [formGroup]="classadd" (ngSubmit)="onSaved()">
-  <div mat-dialog-title>
-    <h1 > Class ADD</h1>
-   </div>
+  <div mat-dialog-title class="dialog-title">
+    <h2>Class list</h2>
+    <button mat-button class="close-icon" [mat-dialog-close]="true">
+      <mat-icon>close</mat-icon>
+  </button>
+  </div>
   <div mat-dialog-content>
   <mat-form-field>
     <mat-label>First Name</mat-label>

@@ -1,0 +1,9 @@
+.dialog-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .new{
+    margin: 2px;
+    width: 75px;
+}

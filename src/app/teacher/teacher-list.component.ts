@@ -7,7 +7,7 @@ import { TeacherService } from './teacher.service';
   styleUrls: ['./teacher-list.component.css']
 })
 export class TeacherListComponent implements OnInit{
-  displayedColumns: string[] = ["id","firstname","lastname","class","action"];
+  displayedColumns: string[] = ["id","firstname","lastname","gender","class","action"];
   dataSource:any;
   constructor(private teacherservice:TeacherService){}
   ngOnInit(){

@@ -27,6 +27,9 @@ import { MatPaginatorModule} from '@angular/material/paginator';
 import { MatMenuModule} from '@angular/material/menu';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatNativeDateModule} from '@angular/material/core';
+import {MatRadioModule} from '@angular/material/radio';
+import { SubjectListComponent } from './subject/subject-list.component';
+import { SubjectAddComponent } from './subject/subject-add/subject-add.component';
 
 
 @NgModule({
@@ -41,6 +44,8 @@ import {MatNativeDateModule} from '@angular/material/core';
     TeacherListComponent,
     ClassListComponent,
     ClassAddComponent,
+    SubjectListComponent,
+    SubjectAddComponent,
   ],
   imports: [
     BrowserModule,
@@ -61,6 +66,7 @@ import {MatNativeDateModule} from '@angular/material/core';
     MatMenuModule,
     MatDatepickerModule,
     MatNativeDateModule,
+    MatRadioModule
   
   ],
   providers: [],

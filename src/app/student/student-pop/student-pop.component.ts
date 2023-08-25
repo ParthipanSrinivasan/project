@@ -9,6 +9,8 @@ import { ClassServicsService } from 'src/app/class/class-servics.service';
 import { MatDialog } from '@angular/material/dialog';
 import { ClassAddComponent } from 'src/app/class/class-add/class-add.component';
 import * as moment from 'moment';
+import { SubjectAddComponent } from 'src/app/subject/subject-add/subject-add.component';
+import { SubjectService } from 'src/app/subject/subject.service';
 
 @Component({
   selector: 'app-student-pop',
@@ -17,7 +19,8 @@ import * as moment from 'moment';
   
 })
 export class StudentPopComponent implements OnInit{
-  constructor(private studentservice:StudentService,@Inject(MAT_DIALOG_DATA) public data: StudentListComponet,private router:Router,public classservice:ClassServicsService,public matDialog:MatDialog){
+  constructor(private studentservice:StudentService,@Inject(MAT_DIALOG_DATA) public data: StudentListComponet,private router:Router,public classservice:ClassServicsService,public matDialog:MatDialog,
+  public subjectService:SubjectService){
     
   }
   update=new FormGroup ({ firstname:new FormControl('',[Validators.required]),
@@ -27,13 +30,17 @@ export class StudentPopComponent implements OnInit{
   sub:new FormControl(''),
   class:new FormControl(''),
   phone:new FormControl('',[Validators.required]),
-  id:new FormControl('')
+  id:new FormControl(''),
+  gender:new FormControl(''),
   });
   errormessage:any=''
   condition:any=false;
   classadd:any;
+  subjects:any
+  genders:any=["male","female"]
   ngOnInit() {
     this.classMethod();
+    this.subjectMethod();
     if(this.data!=null){
       this.studentservice.dialogComponent(this.data).subscribe((value:any)=>{
         this.update.patchValue(value);
@@ -84,12 +91,26 @@ export class StudentPopComponent implements OnInit{
   }
   datePicker(date:any){
     try {
-      const myDate = moment(date,"MMM-DD-YYYY").format('YYYY-MM-DD');
+      const myDate = moment(date,"MMM-DD-YYYY").format('DD-MM-YYYY');
       return myDate;
     } catch(e) {
       console.log(e)
       return e; 
     }
+  }
+  subjectDialog(){
+    const def=this.matDialog.open(SubjectAddComponent,{height:"35%",width:"30%"});
+    def.afterClosed().subscribe((val:any)=>{
+      if(val!=""){
+        this.update.controls["sub"].setValue(val.sub);
+        this.subjectMethod();
+      }
+    })
+  }
+  subjectMethod(){
+    this.subjectService.showSubjectTable().subscribe((val:any)=>{
+      this.subjects=val;
+    });
   }
   
 }

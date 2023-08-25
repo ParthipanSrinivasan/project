@@ -22,6 +22,12 @@
               fill they form required
           </p>
            <br>
+            <mat-label>Gender</mat-label>
+            <br>
+              <mat-radio-group aria-label="Select an option" formControlName="gender">
+              <mat-radio-button  *ngFor="let gen of genders"  [value]="gen">{{gen}}</mat-radio-button>
+              </mat-radio-group>
+              <br>
              <mat-form-field>
                 <mat-label>Class</mat-label>
                   <input type="text"  matInput placeholder="Class" formControlName="class" name="class" >

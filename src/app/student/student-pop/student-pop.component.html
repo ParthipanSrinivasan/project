@@ -1,7 +1,10 @@
 <form [formGroup]="update" (ngSubmit)="onUpdate()">
-  <div mat-dialog-title>
-    <h1 > Student Edit</h1>
-   </div>
+    <div mat-dialog-title class="dialog-title">
+      <h2>Student details</h2>
+      <button mat-button class="close-icon" [mat-dialog-close]="true">
+        <mat-icon>close</mat-icon>
+    </button>
+    </div>
   <div mat-dialog-content>
     <mat-form-field>
       <mat-label>First Name</mat-label>
@@ -30,6 +33,13 @@
       </p>
    </div>
    <div mat-dialog-content>
+    <mat-label>Gender</mat-label>
+    <br>
+    <mat-radio-group aria-label="Select an option" formControlName="gender">
+    <mat-radio-button  *ngFor="let gen of genders"  [value]="gen">{{gen}}</mat-radio-button>
+    </mat-radio-group>
+   </div>
+   <div mat-dialog-content>
     <mat-form-field>
       <mat-label>Choose a date</mat-label>
       <input matInput formControlName="date" [matDatepicker]="picker">
@@ -38,11 +48,16 @@
       <mat-datepicker #picker></mat-datepicker> 
        </mat-form-field>
    </div>
-    <div mat-dialog-content>
-      <mat-form-field>
-        <mat-label>Subject</mat-label>
-          <input type="text"  matInput placeholder="Subject" formControlName="sub" name="sub" >
-        </mat-form-field>
+      <div mat-dialog-content>
+        <mat-form-field>
+          <mat-label>Subject</mat-label>
+          <mat-select formControlName="sub" name="sub">
+            <mat-option *ngFor="let sub of subjects" [value]="sub.sub">
+              {{sub.sub}}
+            </mat-option>
+            <button (click)="subjectDialog()" class="btn btn-outline-primary">Add Subject</button>
+          </mat-select>
+       </mat-form-field>
       </div>
       <div mat-dialog-content>
         <mat-form-field>
@@ -56,9 +71,18 @@
        </mat-form-field>
       </div>
       <div mat-dialog-content>
+        <mat-form-field class="new">
+          <mat-label>Ph</mat-label>
+          <select matNativeControl required>
+            <option value="+91">+91</option>
+            <option value="+248">+248</option>
+            <option value="+78">+78</option>
+            <option value="+20">+20</option>
+          </select>
+        </mat-form-field>
         <mat-form-field>
           <mat-label>Phone</mat-label>
-       <input type="text"  matInput placeholder="Phone" formControlName="phone" name="phone">
+       <input type="text" appHighlight matInput placeholder="Phone" formControlName="phone" name="phone">
      </mat-form-field>
       </div>
       <p class="alert alert-danger" *ngIf="condition && update.get('phone')?.hasError('required') ">

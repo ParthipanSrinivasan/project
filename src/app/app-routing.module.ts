@@ -8,6 +8,7 @@ import { TeacherListComponent } from './teacher/teacher-list.component';
 import { StudentListComponet } from './student/student-list.component';
 import { ClassAddComponent } from './class/class-add/class-add.component';
 import { ClassListComponent } from './class/class-list.component';
+import { SubjectListComponent } from './subject/subject-list.component';
 
 const routes: Routes = [
   {path:"",component:DasboardComponent,
@@ -18,7 +19,8 @@ const routes: Routes = [
     {path:"teacher/edit/:id",component:TeacherAddComponent},
     {path:"teacher/list",component:TeacherListComponent},
     {path:"class/add",component:ClassAddComponent},
-    {path:"class/list",component:ClassListComponent}
+    {path:"class/list",component:ClassListComponent},
+    {path:"subject/list",component:SubjectListComponent}
   ]},
     {path:"login",component:LoginPageComponent},
 ];

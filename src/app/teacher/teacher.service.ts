@@ -7,10 +7,10 @@ import { Observable } from 'rxjs';
 export class TeacherService {
   teacherec:any
   constructor() { 
-    this.teacherec=[{id:"3456",firstname:"Banu",lastname:"mathi",class:"10th"},
-    {id:"8124",firstname:"Kala",lastname:"Sri",class:"09th"},
-    {id:"1939",firstname:"Haritha",lastname:"Sri",class:"08th"},
-    {id:"9393",firstname:"Dhivya",lastname:"dharshini",class:"12th"}]
+    this.teacherec=[{id:"3456",firstname:"Banu",lastname:"mathi",gender:"female",class:"10th"},
+    {id:"8124",firstname:"Kala",lastname:"Sri",gender:"female",class:"09th"},
+    {id:"1939",firstname:"Haritha",lastname:"Sri",gender:"female",class:"08th"},
+    {id:"9393",firstname:"Dhivya",lastname:"dharshini",gender:"female",class:"12th"}]
   }
   teacherSaved(teacher:any){
     const obser=new Observable(val=>{

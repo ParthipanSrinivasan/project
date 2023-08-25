@@ -1,0 +1,33 @@
+<div class="container">
+    <div class="row">
+        <div class="col-lg-6">
+          <h3>Subject</h3>
+        </div>
+        <div class="col-lg-6">
+          <div class="d-flex flex-row-reverse">
+            <button mat-raised-button color="primary" (click)="createSubject()">Created</button>
+          </div>
+        </div>
+        <div class="col-12-lg">
+         <table>
+          <thead>
+            <tr>
+            <th>id</th>
+            <th>subjectName</th>
+            </tr>
+          </thead>
+          <tbody>
+            <ng-container *ngFor="let subject of subjects">
+              <tr>
+                <td>{{subject.id}}</td>
+                <td>{{subject.sub}}</td>
+              </tr>
+            </ng-container>
+            <tr>
+            </tr>
+          </tbody>
+         </table>
+        
+        </div>
+    </div>
+</div>

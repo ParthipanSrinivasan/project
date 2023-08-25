@@ -8,26 +8,26 @@ export class StudentService {
   studentrec:any=[];
   constructor(){
     this.studentrec=
-    [{id:123,firstname:"parth",lastname:"sokku",age:"22",sub:"english",class:"12th",class_id:"3",phone:"9807867812",date:'2001-04-14'},
-    {id:124,firstname:"parth",lastname:"sokku",age:"22",sub:"tamil",class:"11th",class_id:"2",phone:"9807867812",date:'2002-12-24'},
-    {id:125,firstname:"parth",lastname:"sokku",age:"22",sub:"history",class:"10th",class_id:"1",phone:"9807867812",date:'2003-09-04'},
-    {id:126,firstname:"parth",lastname:"sokku",age:"22",sub:"english",class:"12th",class_id:"3",phone:"9807867812",date:'2005-05-27'},
-    {id:127,firstname:"parth",lastname:"sokku",age:"22",sub:"tamil",class:"11th",class_id:"2",phone:"9807867812",date:'2009-09-19'},
-    {id:128,firstname:"parth",lastname:"sokku",age:"22",sub:"history",class:"10th",class_id:"1",phone:"9807867812",date:'2001-04-14'},
-    {id:129,firstname:"parth",lastname:"sokku",age:"22",sub:"english",class:"12th",class_id:"3",phone:"9807867812",date:'2002-12-24'},
-    {id:112,firstname:"parth",lastname:"sokku",age:"22",sub:"tamil",class:"11th",class_id:"2",phone:"9807867812",date:'2003-09-04'},
-    {id:113,firstname:"parth",lastname:"sokku",age:"22",sub:"history",class:"10th",class_id:"1",phone:"9807867812",date:'2005-05-27'},
-    {id:114,firstname:"parth",lastname:"sokku",age:"22",sub:"english",class:"12th",class_id:"3",phone:"9807867812",date:'2009-09-19'},
-    {id:115,firstname:"parth",lastname:"sokku",age:"22",sub:"tamil",class:"11th",class_id:"2",phone:"9807867812",date:'2001-04-14'},
-    {id:116,firstname:"parth",lastname:"sokku",age:"22",sub:"history",class:"10th",class_id:"1",phone:"9807867812",date:'2002-12-24'},
-    {id:117,firstname:"parth",lastname:"sokku",age:"22",sub:"english",class:"12th",class_id:"3",phone:"9807867812",date:'2003-09-04'},
-    {id:118,firstname:"parth",lastname:"sokku",age:"22",sub:"tamil",class:"11th",class_id:"2",phone:"9807867812",date:'2009-09-19'},
-    {id:119,firstname:"parth",lastname:"sokku",age:"22",sub:"english",class:"12th",class_id:"3",phone:"9807867812",date:'2005-05-27'},
-    {id:121,firstname:"parth",lastname:"sokku",age:"22",sub:"tamil",class:"11th",class_id:"2",phone:"9807867812",date:'2001-04-14'},
-    {id:132,firstname:"parth",lastname:"sokku",age:"22",sub:"history",class:"10th",class_id:"1",phone:"9807867812",date:'2002-12-24'},
-    {id:134,firstname:"parth",lastname:"sokku",age:"22",sub:"english",class:"12th",class_id:"3",phone:"9807867812",date:'2003-09-04'},
-    {id:135,firstname:"parth",lastname:"sokku",age:"22",sub:"tamil",class:"11th",class_id:"2",phone:"9807867812",date:'2005-05-27'},
-    {id:136,firstname:"parth",lastname:"sokku",age:"22",sub:"history",class:"10th",class_id:"1",phone:"9807867812",date:'2001-04-14'}];
+    [{id:123,firstname:"parth",lastname:"sokku",age:"22",sub:"english",class:"12th",class_id:"3",phone:"9807867812",date:'14-04-2001',gender:"male"},
+    {id:124,firstname:"parth",lastname:"sokku",age:"22",sub:"tamil",class:"11th",class_id:"2",phone:"9807867812",date:'24-12-2002',gender:"male"},
+    {id:125,firstname:"parth",lastname:"sokku",age:"22",sub:"history",class:"10th",class_id:"1",phone:"9807867812",date:'04-09-2003',gender:"female"},
+    {id:126,firstname:"parth",lastname:"sokku",age:"22",sub:"english",class:"12th",class_id:"3",phone:"9807867812",date:'27-05-2005',gender:"female"},
+    {id:127,firstname:"parth",lastname:"sokku",age:"22",sub:"tamil",class:"11th",class_id:"2",phone:"9807867812",date:'19-09-2009',gender:"male"},
+    {id:128,firstname:"parth",lastname:"sokku",age:"22",sub:"history",class:"10th",class_id:"1",phone:"9807867812",date:'14-04-2001',gender:"female"},
+    {id:129,firstname:"parth",lastname:"sokku",age:"22",sub:"english",class:"12th",class_id:"3",phone:"9807867812",date:'24-12-2002',gender:"female"},
+    {id:112,firstname:"parth",lastname:"sokku",age:"22",sub:"tamil",class:"11th",class_id:"2",phone:"9807867812",date:'04-09-2003',gender:"female"},
+    {id:113,firstname:"parth",lastname:"sokku",age:"22",sub:"history",class:"10th",class_id:"1",phone:"9807867812",date:'27-05-2005',gender:"male"},
+    {id:114,firstname:"parth",lastname:"sokku",age:"22",sub:"english",class:"12th",class_id:"3",phone:"9807867812",date:'2009-09-19',gender:"female"},
+    {id:115,firstname:"parth",lastname:"sokku",age:"22",sub:"tamil",class:"11th",class_id:"2",phone:"9807867812",date:'14-04-2001',gender:"male"},
+    {id:116,firstname:"parth",lastname:"sokku",age:"22",sub:"history",class:"10th",class_id:"1",phone:"9807867812",date:'24-12-2002',gender:"female"},
+    {id:117,firstname:"parth",lastname:"sokku",age:"22",sub:"english",class:"12th",class_id:"3",phone:"9807867812",date:'04-09-2003',gender:"male"},
+    {id:118,firstname:"parth",lastname:"sokku",age:"22",sub:"tamil",class:"11th",class_id:"2",phone:"9807867812",date:'19-09-2009',gender:"female"},
+    {id:119,firstname:"parth",lastname:"sokku",age:"22",sub:"english",class:"12th",class_id:"3",phone:"9807867812",date:'27-05-2005',gender:"male"},
+    {id:121,firstname:"parth",lastname:"sokku",age:"22",sub:"tamil",class:"11th",class_id:"2",phone:"9807867812",date:'14-04-2001',gender:"female"},
+    {id:132,firstname:"parth",lastname:"sokku",age:"22",sub:"history",class:"10th",class_id:"1",phone:"9807867812",date:'24-12-2002',gender:"male"},
+    {id:134,firstname:"parth",lastname:"sokku",age:"22",sub:"english",class:"12th",class_id:"3",phone:"9807867812",date:'04-09-2003',gender:"female"},
+    {id:135,firstname:"parth",lastname:"sokku",age:"22",sub:"tamil",class:"11th",class_id:"2",phone:"9807867812",date:'27-05-2005',gender:"male"},
+    {id:136,firstname:"parth",lastname:"sokku",age:"22",sub:"history",class:"10th",class_id:"1",phone:"9807867812",date:'14-04-2001',gender:"female"}];
     
   }
   tableList(valu:any){

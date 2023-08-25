@@ -12,12 +12,14 @@ export class TeacherAddComponent implements OnInit {
 teacher:any=new FormGroup({firstname:new FormControl('',[Validators.required]),
 lastname:new FormControl('',[Validators.required]),
 class:new FormControl('',[Validators.required]),
+gender:new FormControl(''),
 id:new FormControl('')
 });
 condition:any=false;
 errormessage:any="";
 val1:any=true;
 val2:any=false;
+genders:any=["male","female"]
 constructor(private route:ActivatedRoute,private teacherservice:TeacherService,private router:Router){}
 ngOnInit(){
   this.route.params.subscribe(params=>{
