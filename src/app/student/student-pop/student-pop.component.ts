@@ -13,7 +13,7 @@ import { SubjectAddComponent } from 'src/app/subject/subject-add/subject-add.com
 import { SubjectService } from 'src/app/subject/subject.service';
 import 'moment/locale/ja';
 import 'moment/locale/fr';
-import {DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE} from '@angular/material/core';
+import {DateAdapter, MAT_DATE_LOCALE} from '@angular/material/core';
 
 @Component({
   selector: 'app-student-pop',
@@ -32,11 +32,11 @@ export class StudentPopComponent implements OnInit{
   age:new FormControl('',[Validators.required]),
   date:new FormControl(),
   sub:new FormControl(''),
-  class:new FormControl(''),
   phone:new FormControl('',[Validators.required]),
   id:new FormControl(''),
   gender:new FormControl(''),
-  num:new FormControl('')
+  num:new FormControl(''),
+  class_id:new FormControl(''),
   });
   errormessage:any=''
   condition:any=false;
@@ -88,7 +88,7 @@ export class StudentPopComponent implements OnInit{
     );
     def.afterClosed().subscribe((val:any)=>{
       if(val!=""){
-        this.update.controls["class"].setValue(val.value);
+        this.update.controls["class_id"].setValue(val.value);
         this.classMethod();
       }
     });

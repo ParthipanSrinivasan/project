@@ -62,8 +62,8 @@
       <div mat-dialog-content>
         <mat-form-field>
           <mat-label>Class</mat-label>
-          <mat-select formControlName="class" name="class">
-            <mat-option *ngFor="let student of classadd" [value]="student.value">
+          <mat-select formControlName="class_id" name="class">
+            <mat-option *ngFor="let student of classadd" [value]="student.class_id">
               {{student.value}}
             </mat-option>
             <button (click)="open()" class="btn btn-outline-primary">Add class</button>

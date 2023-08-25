@@ -22,7 +22,7 @@ export class StudentListComponet implements OnInit {
   class:new FormControl(''),
   phone:new FormControl('',[Validators.required]),
   });
-  displayedColumns: string[] = ["index","id","firstname","lastname","age","gender","date","sub","class","phone",'action'];
+  displayedColumns: string[] = ["index","id","firstname","lastname","age","gender","date","sub","phone",'action'];
   dataSource:any;
   condition:any=false;
   pagination:any=[];

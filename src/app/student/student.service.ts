@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { DatePipe } from '@angular/common';
 
 @Injectable({
   providedIn: 'root'
@@ -8,12 +9,12 @@ export class StudentService {
   studentrec:any=[];
   constructor(){
     this.studentrec=
-    [{id:123,firstname:"parth",lastname:"sokku",age:"22",sub:"english",class:"12th",class_id:"3",phone:"9807867812",date:'2001-04-14',gender:"male",num:"+91"},
-    {id:124,firstname:"parth",lastname:"sokku",age:"22",sub:"tamil",class:"11th",class_id:"2",phone:"9807867812",date:'2002-12-14',gender:"male",num:"+91"},
-    {id:125,firstname:"parth",lastname:"sokku",age:"22",sub:"history",class:"10th",class_id:"1",phone:"9807867812",date:'2001-04-14',gender:"female",num:"+91"},
-    {id:126,firstname:"parth",lastname:"sokku",age:"22",sub:"english",class:"12th",class_id:"3",phone:"9807867812",date:'2002-12-14',gender:"female",num:"+91"},
-    {id:127,firstname:"parth",lastname:"sokku",age:"22",sub:"tamil",class:"11th",class_id:"2",phone:"9807867812",date:'2009-09-19',gender:"male",num:"+91"},
-    {id:128,firstname:"parth",lastname:"sokku",age:"22",sub:"history",class:"10th",class_id:"1",phone:"9807867812",date:'2001-04-14',gender:"female",num:"+91"}];
+    [{id:123,firstname:"parth",lastname:"sokku",age:"22",sub:"english",class_id:"3",phone:"9807867812",date:'2001-04-14',gender:"male",num:"+91"},
+    {id:124,firstname:"parth",lastname:"sokku",age:"22",sub:"tamil",class_id:"2",phone:"9807867812",date:'2002-12-14',gender:"male",num:"+91"},
+    {id:125,firstname:"parth",lastname:"sokku",age:"22",sub:"history",class_id:"1",phone:"9807867812",date:'2001-04-14',gender:"female",num:"+91"},
+    {id:126,firstname:"parth",lastname:"sokku",age:"22",sub:"english",class_id:"3",phone:"9807867812",date:'2002-12-14',gender:"female",num:"+91"},
+    {id:127,firstname:"parth",lastname:"sokku",age:"22",sub:"tamil",class_id:"2",phone:"9807867812",date:'2009-09-19',gender:"male",num:"+91"},
+    {id:128,firstname:"parth",lastname:"sokku",age:"22",sub:"history",class_id:"1",phone:"9807867812",date:'2001-04-14',gender:"female",num:"+91"}];
     
   }
   tableList(valu:any){
@@ -62,9 +63,9 @@ export class StudentService {
           elemen["lastname"]=editvalue.lastname
           elemen["age"]=editvalue.age
           elemen["sub"]=editvalue.sub
-          elemen["class"]=editvalue.class
           elemen["phone"]=editvalue.phone
           elemen["date"]=editvalue.date
+          elemen["gender"]=editvalue.gender
           val.next(elemen);
           val.complete();
         }
