@@ -20,15 +20,29 @@
           <tbody>
             <ng-container  *ngFor="let vale of dataSource">
               <tr>
-                <td>{{vale.value}}</td>
+                 <mat-accordion>
+            <mat-expansion-panel hideToggle>
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  <td>{{vale.value}}</td>
                 <td>{{vale.viewValue}}</td>
-              </tr>
-              <tr>
-                <td><app-student-list [myinputMsg]="vale.class_id"></app-student-list></td>
-              </tr>
-            </ng-container>
-            <tr>
-            </tr>
+                </mat-panel-title>
+              </mat-expansion-panel-header>
+              <p>This is the primary content of the panel.</p>
+            </mat-expansion-panel>
+            <mat-expansion-panel (opened)="panelOpenState = true"
+                                 (closed)="panelOpenState = false">
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  show table
+                </mat-panel-title>
+                
+              </mat-expansion-panel-header>
+              <td><app-student-list [myinputMsg]="vale.class_id"></app-student-list></td>
+            </mat-expansion-panel>
+          </mat-accordion>
+         </tr>
+        </ng-container>
           </tbody>
          </table>
         

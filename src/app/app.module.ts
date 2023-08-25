@@ -30,6 +30,7 @@ import {MatNativeDateModule} from '@angular/material/core';
 import {MatRadioModule} from '@angular/material/radio';
 import { SubjectListComponent } from './subject/subject-list.component';
 import { SubjectAddComponent } from './subject/subject-add/subject-add.component';
+import {MatExpansionModule} from '@angular/material/expansion';
 
 
 @NgModule({
@@ -66,7 +67,8 @@ import { SubjectAddComponent } from './subject/subject-add/subject-add.component
     MatMenuModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    MatRadioModule
+    MatRadioModule,
+    MatExpansionModule
   
   ],
   providers: [],

@@ -12,6 +12,7 @@ export class ClassListComponent implements OnInit{
   displayedColumns: string[] = ["value","viewValue"];
   dataSource:any;
   myInputMessage:any="hi ever body";
+  panelOpenState = false;
   constructor(private classservice:ClassServicsService,public matDialog:MatDialog){}
   ngOnInit(){
     this.classservice.showList().subscribe(value=>{
