@@ -24,7 +24,7 @@
            <br>
             <mat-label>Gender</mat-label>
             <br>
-              <mat-radio-group aria-label="Select an option" formControlName="gender">
+              <mat-radio-group aria-label="Select an option" formControlName="gender" name="gender">
               <mat-radio-button  *ngFor="let gen of genders"  [value]="gen">{{gen}}</mat-radio-button>
               </mat-radio-group>
               <br>

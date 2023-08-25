@@ -11,6 +11,9 @@ import { ClassAddComponent } from 'src/app/class/class-add/class-add.component';
 import * as moment from 'moment';
 import { SubjectAddComponent } from 'src/app/subject/subject-add/subject-add.component';
 import { SubjectService } from 'src/app/subject/subject.service';
+import 'moment/locale/ja';
+import 'moment/locale/fr';
+import {DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE} from '@angular/material/core';
 
 @Component({
   selector: 'app-student-pop',
@@ -20,7 +23,8 @@ import { SubjectService } from 'src/app/subject/subject.service';
 })
 export class StudentPopComponent implements OnInit{
   constructor(private studentservice:StudentService,@Inject(MAT_DIALOG_DATA) public data: StudentListComponet,private router:Router,public classservice:ClassServicsService,public matDialog:MatDialog,
-  public subjectService:SubjectService){
+  public subjectService:SubjectService,private _adapter: DateAdapter<any>,
+  @Inject(MAT_DATE_LOCALE) private _locale: string,){
     
   }
   update=new FormGroup ({ firstname:new FormControl('',[Validators.required]),
@@ -32,15 +36,19 @@ export class StudentPopComponent implements OnInit{
   phone:new FormControl('',[Validators.required]),
   id:new FormControl(''),
   gender:new FormControl(''),
+  num:new FormControl('')
   });
   errormessage:any=''
   condition:any=false;
   classadd:any;
   subjects:any
-  genders:any=["male","female"]
+  genders:any=["male","female"];
+  countryno:any=['+91',"+234","+1","+82"]
   ngOnInit() {
     this.classMethod();
     this.subjectMethod();
+    this._locale = 'fr';
+    this._adapter.setLocale(this._locale);
     if(this.data!=null){
       this.studentservice.dialogComponent(this.data).subscribe((value:any)=>{
         this.update.patchValue(value);
@@ -68,6 +76,7 @@ export class StudentPopComponent implements OnInit{
       const dateChange:any=this.update.value;
       dateChange["date"]=this.datePicker(dateChange.date);
       dateChange["class_id"]=this.classadd.class_id;
+      dateChange["phone"]=(this.update.value.num+"-"+this.update .value.phone);
       this.studentservice.dialogCreate(dateChange).subscribe(value=>{
         this.router.navigate(['/student/list']);
       });
@@ -91,10 +100,9 @@ export class StudentPopComponent implements OnInit{
   }
   datePicker(date:any){
     try {
-      const myDate = moment(date,"MMM-DD-YYYY").format('DD-MM-YYYY');
+      const myDate = moment(date,"MMM-DD-YYYY").format('YYYY-MM-DD');
       return myDate;
     } catch(e) {
-      console.log(e)
       return e; 
     }
   }
@@ -112,5 +120,4 @@ export class StudentPopComponent implements OnInit{
       this.subjects=val;
     });
   }
-  
 }

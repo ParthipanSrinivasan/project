@@ -51,6 +51,7 @@ export class TeacherService {
       if(elemen){
         elemen['firstname']=value.firstname;
         elemen['lastname']=value.lastname;
+        elemen['gender']=value.gender
         elemen['class']=value.class;
         val.next(elemen);
         val.complete();

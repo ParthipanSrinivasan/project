@@ -43,7 +43,7 @@
     <mat-form-field>
       <mat-label>Choose a date</mat-label>
       <input matInput formControlName="date" [matDatepicker]="picker">
-      <mat-hint>MM/DD/YYYY</mat-hint>
+      <mat-hint>DD/MM/YYYY</mat-hint>
       <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
       <mat-datepicker #picker></mat-datepicker> 
        </mat-form-field>
@@ -72,13 +72,12 @@
       </div>
       <div mat-dialog-content>
         <mat-form-field class="new">
-          <mat-label>Ph</mat-label>
-          <select matNativeControl required>
-            <option value="+91">+91</option>
-            <option value="+248">+248</option>
-            <option value="+78">+78</option>
-            <option value="+20">+20</option>
-          </select>
+          <mat-label>Ph-</mat-label>
+          <mat-select formControlName="num" name="num">
+            <mat-option *ngFor="let ph of countryno" [value]="ph">
+              {{ph}}
+            </mat-option>
+          </mat-select>
         </mat-form-field>
         <mat-form-field>
           <mat-label>Phone</mat-label>
