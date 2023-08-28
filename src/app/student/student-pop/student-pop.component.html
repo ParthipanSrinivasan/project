@@ -1,99 +1,125 @@
-<form [formGroup]="update" (ngSubmit)="onUpdate()">
-    <div mat-dialog-title class="dialog-title">
-      <h2>Student details</h2>
-      <button mat-button class="close-icon" [mat-dialog-close]="true">
-        <mat-icon>close</mat-icon>
-    </button>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+      <form [formGroup]="update" (ngSubmit)="onUpdate()">
+        <div mat-dialog-title class="dialog-title">
+          <h2>Student details</h2>
+          <button mat-button class="close-icon" [mat-dialog-close]="true">
+            <mat-icon>close</mat-icon>
+        </button>
+        </div>
+        <div class="row">
+          <div class="col-sm-6">
+            <div mat-dialog-content>
+              <mat-form-field>
+                <mat-label>First Name</mat-label>
+                 <input type="text"  matInput placeholder="First Name" formControlName="firstname" name="firstname">
+              </mat-form-field>
+              <p class="alert alert-danger" *ngIf="condition && update.get('firstname')?.hasError('required')">
+                fill they form required
+            </p>
+             </div>
+          </div>
+          <div class="col-sm-6">
+            <div mat-dialog-content>
+              <mat-form-field>
+                <mat-label>Last Name</mat-label>
+                <input type="text"  matInput placeholder="Last Name" formControlName="lastname" name="lastname" >
+                </mat-form-field>
+                <p class="alert alert-danger" *ngIf="condition && update.get('lastname')?.hasError('required')">
+                  fill they form required
+              </p>
+             </div>
+          </div>
+          <div class="col-sm-6">
+            <div mat-dialog-content>
+              <mat-form-field>
+                <mat-label>Age</mat-label>
+                 <input type="text" appHighlight matInput placeholder="Age" formControlName="age" name="age" > 
+                 </mat-form-field>
+                 <p class="alert alert-danger" *ngIf="condition && update.get('age')?.hasError('required')">
+                  fill they form required
+                </p>
+             </div>
+          </div>
+          <div class="col-sm-6">
+            <div mat-dialog-content class="date">
+              <mat-form-field>
+                <mat-label>Choose a date</mat-label>
+                <input matInput formControlName="date" [matDatepicker]="picker">
+                <mat-hint>DD/MM/YYYY</mat-hint>
+                <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker> 
+                 </mat-form-field>
+             </div>
+          </div>
+          <div class="col-sm-12">
+            <div class="d-flex mx-5">
+              <div mat-dialog-content>
+                <mat-label>Gender</mat-label>
+                <br>
+                <mat-radio-group aria-label="Select an option" formControlName="gender">
+                <mat-radio-button  *ngFor="let gen of genders"  [value]="gen">{{gen}}</mat-radio-button>
+                </mat-radio-group>
+               </div>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div mat-dialog-content>
+              <mat-form-field>
+                <mat-label>Subject</mat-label>
+                <mat-select formControlName="sub" name="sub">
+                  <mat-option *ngFor="let sub of subjects" [value]="sub.sub">
+                    {{sub.sub}}
+                  </mat-option>
+                  <button (click)="subjectDialog()" class="btn btn-outline-primary">Add Subject</button>
+                </mat-select>
+             </mat-form-field>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div mat-dialog-content>
+              <mat-form-field>
+                <mat-label>Class</mat-label>
+                <mat-select formControlName="class_id" name="class">
+                  <mat-option *ngFor="let student of classadd" [value]="student.class_id">
+                    {{student.value}}
+                  </mat-option>
+                  <button (click)="open()" class="btn btn-outline-primary">Add class</button>
+                </mat-select>
+             </mat-form-field>
+            </div>
+          </div>
+          <div class="col-sm-12">
+            <div  class="mx-5">
+              <div mat-dialog-content>
+                <mat-form-field class="new">
+                  <mat-label>Ph-</mat-label>
+                  <mat-select formControlName="num" name="num">
+                    <mat-option *ngFor="let ph of countryno" [value]="ph">
+                      {{ph}}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+                <mat-form-field>
+                  <mat-label>Phone</mat-label>
+               <input type="text" appHighlight matInput placeholder="Phone" formControlName="phone" name="phone">
+             </mat-form-field>
+              </div>
+              <p class="alert alert-danger" *ngIf="condition && update.get('phone')?.hasError('required') ">
+                fill they all form
+            </p>
+            </div>
+          </div>
+          <div class="col-sm-12">
+            <div mat-dialog-actions>
+              <button mat-button  mat-dialog-close type="submit" class="btn btn-outline-primary">Saved</button>  
+              <button mat-button   mat-dialog-close type="button" (click)="create()" class="btn btn-outline-primary" >Create</button>
+              <button mat-button mat-dialog-close class="btn btn-outline-danger">close</button>
+              </div>
+          </div>
+        </div>
+    </form>
     </div>
-  <div mat-dialog-content>
-    <mat-form-field>
-      <mat-label>First Name</mat-label>
-       <input type="text"  matInput placeholder="First Name" formControlName="firstname" name="firstname">
-    </mat-form-field>
-    <p class="alert alert-danger" *ngIf="condition && update.get('firstname')?.hasError('required')">
-      fill they form required
-  </p>
-   </div>
-   <div mat-dialog-content>
-    <mat-form-field>
-      <mat-label>Last Name</mat-label>
-      <input type="text"  matInput placeholder="Last Name" formControlName="lastname" name="lastname" >
-      </mat-form-field>
-      <p class="alert alert-danger" *ngIf="condition && update.get('lastname')?.hasError('required')">
-        fill they form required
-    </p>
-   </div>
-   <div mat-dialog-content>
-    <mat-form-field>
-      <mat-label>Age</mat-label>
-       <input type="text" appHighlight matInput placeholder="Age" formControlName="age" name="age" > 
-       </mat-form-field>
-       <p class="alert alert-danger" *ngIf="condition && update.get('age')?.hasError('required')">
-        fill they form required
-      </p>
-   </div>
-   <div mat-dialog-content>
-    <mat-label>Gender</mat-label>
-    <br>
-    <mat-radio-group aria-label="Select an option" formControlName="gender">
-    <mat-radio-button  *ngFor="let gen of genders"  [value]="gen">{{gen}}</mat-radio-button>
-    </mat-radio-group>
-   </div>
-   <div mat-dialog-content>
-    <mat-form-field>
-      <mat-label>Choose a date</mat-label>
-      <input matInput formControlName="date" [matDatepicker]="picker">
-      <mat-hint>DD/MM/YYYY</mat-hint>
-      <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
-      <mat-datepicker #picker></mat-datepicker> 
-       </mat-form-field>
-   </div>
-      <div mat-dialog-content>
-        <mat-form-field>
-          <mat-label>Subject</mat-label>
-          <mat-select formControlName="sub" name="sub">
-            <mat-option *ngFor="let sub of subjects" [value]="sub.sub">
-              {{sub.sub}}
-            </mat-option>
-            <button (click)="subjectDialog()" class="btn btn-outline-primary">Add Subject</button>
-          </mat-select>
-       </mat-form-field>
-      </div>
-      <div mat-dialog-content>
-        <mat-form-field>
-          <mat-label>Class</mat-label>
-          <mat-select formControlName="class_id" name="class">
-            <mat-option *ngFor="let student of classadd" [value]="student.class_id">
-              {{student.value}}
-            </mat-option>
-            <button (click)="open()" class="btn btn-outline-primary">Add class</button>
-          </mat-select>
-       </mat-form-field>
-      </div>
-      <div mat-dialog-content>
-        <mat-form-field class="new">
-          <mat-label>Ph-</mat-label>
-          <mat-select formControlName="num" name="num">
-            <mat-option *ngFor="let ph of countryno" [value]="ph">
-              {{ph}}
-            </mat-option>
-          </mat-select>
-        </mat-form-field>
-        <mat-form-field>
-          <mat-label>Phone</mat-label>
-       <input type="text" appHighlight matInput placeholder="Phone" formControlName="phone" name="phone">
-     </mat-form-field>
-      </div>
-      <p class="alert alert-danger" *ngIf="condition && update.get('phone')?.hasError('required') ">
-        fill they all form
-    </p>
-   <div mat-dialog-actions>
-   <button mat-button  mat-dialog-close type="submit" class="btn btn-outline-primary">Saved</button>  
-   <button mat-button   mat-dialog-close type="button" (click)="create()" class="btn btn-outline-primary" >Create</button>
-   <button mat-button mat-dialog-close class="btn btn-outline-danger">close</button>
-   </div>
-</form>
-
-
-   
-   
+  </div>
+</div>

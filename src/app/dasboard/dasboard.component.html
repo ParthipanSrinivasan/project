@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-white bg-light navbar-inverse navbar-right">
+<!-- <nav class="navbar navbar-expand-lg navbar-white bg-light navbar-inverse navbar-right">
     <div class="container">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-bs-target="#mynavbar" aria-controls="mynavbar" aria-expanded="false" aria-label="Toggle navigation"></button>
         <div class="collapse navbar-collapse " id="mynavbar">
@@ -30,8 +30,37 @@
             </div>
         </div>
     </div>
-</nav>
-<body>
+</nav> -->
+<mat-toolbar color="primary">
+    <mat-toolbar-row>
+        <div class="menu">
+            <a href="/student/list" class="nav-link">Student</a>
+        </div>
+        <div class="menu">
+            <a href="/teacher/list" class="nav-link">Teacher</a>
+        </div>
+        <div class="menu">
+            <a href="/class/list" class="nav-link">class</a>
+        </div>
+        <span class="example-spacer"></span>
+        <div class="example-icon">
+            <h3 class=" my-2 my-sm-0">Login:{{loginName.id}} <br> Phone:{{loginName.phone}}</h3>
+        </div>
+        <div class="example-icon">
+            <button mat-raised-button color="warn" [routerLink]="['/login']" type="submit"  matTooltip="They page is LogOut" aria-label="Hide tooltip on the button at the end of this section" (click)="logout()">logout</button>
+        </div>
+        <div class="example-icon">
+            <button mat-button [matMenuTriggerFor]="menu"><mat-icon>menu</mat-icon></button>
+            <mat-menu #menu="matMenu">
+            <button mat-menu-item [routerLink]="['/student/list']">Student</button>
+            <button mat-menu-item [routerLink]="['/teacher/list']">Teacher</button>
+            <button mat-menu-item [routerLink]="['/class/list']">Class</button>
+            <button mat-menu-item [routerLink]="['/subject/list']">Subject</button>
+            </mat-menu>
+        </div>
+    </mat-toolbar-row>
+</mat-toolbar>
+<body class="my-3">
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
