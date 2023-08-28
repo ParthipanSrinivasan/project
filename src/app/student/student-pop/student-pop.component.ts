@@ -63,7 +63,7 @@ export class StudentPopComponent implements OnInit{
       const dateChange=this.update.value;
       dateChange["date"]=this.datePicker(dateChange.date);
       this.studentservice.studentEditSave(dateChange).subscribe((value:any)=>{
-        this.router.navigate(['/student/list']);
+        
       },(error:any)=>{
         this.errormessage=error.error;
       })
@@ -76,9 +76,8 @@ export class StudentPopComponent implements OnInit{
       const dateChange:any=this.update.value;
       dateChange["date"]=this.datePicker(dateChange.date);
       dateChange["class_id"]=this.classadd.class_id;
-      dateChange["phone"]=(this.update.value.num+"-"+this.update .value.phone);
       this.studentservice.dialogCreate(dateChange).subscribe(value=>{
-        this.router.navigate(['/student/list']);
+        
       });
       return;
      }

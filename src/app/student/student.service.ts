@@ -10,11 +10,11 @@ export class StudentService {
   constructor(){
     this.studentrec=
     [{id:123,firstname:"parth",lastname:"sokku",age:"22",sub:"english",class_id:"3",phone:"9807867812",date:'2001-04-14',gender:"male",num:"+91"},
-    {id:124,firstname:"parth",lastname:"sokku",age:"22",sub:"tamil",class_id:"2",phone:"9807867812",date:'2002-12-14',gender:"male",num:"+91"},
+    {id:124,firstname:"parth",lastname:"sokku",age:"22",sub:"tamil",class_id:"2",phone:"9807867812",date:'2002-12-14',gender:"male",num:"+234"},
     {id:125,firstname:"parth",lastname:"sokku",age:"22",sub:"history",class_id:"1",phone:"9807867812",date:'2001-04-14',gender:"female",num:"+91"},
-    {id:126,firstname:"parth",lastname:"sokku",age:"22",sub:"english",class_id:"3",phone:"9807867812",date:'2002-12-14',gender:"female",num:"+91"},
-    {id:127,firstname:"parth",lastname:"sokku",age:"22",sub:"tamil",class_id:"2",phone:"9807867812",date:'2009-09-19',gender:"male",num:"+91"},
-    {id:128,firstname:"parth",lastname:"sokku",age:"22",sub:"history",class_id:"1",phone:"9807867812",date:'2001-04-14',gender:"female",num:"+91"}];
+    {id:126,firstname:"parth",lastname:"sokku",age:"22",sub:"english",class_id:"3",phone:"9807867812",date:'2002-12-14',gender:"female",num:"+82"},
+    {id:127,firstname:"parth",lastname:"sokku",age:"22",sub:"tamil",class_id:"2",phone:"9807867812",date:'2009-09-19',gender:"male",num:"+234"},
+    {id:128,firstname:"parth",lastname:"sokku",age:"22",sub:"history",class_id:"1",phone:"9807867812",date:'2001-04-14',gender:"female",num:"+1"}];
     
   }
   tableList(valu:any){
@@ -43,8 +43,6 @@ export class StudentService {
     const obser=new Observable((val)=>{
       const elemen=this.studentrec.find((val:any)=>(val.id==dialog))
       if(elemen){
-          const replace=elemen.phone.replace(elemen.num+"-","");
-          elemen["phone"]=replace;
         val.next(elemen);
         val.complete();
       }
