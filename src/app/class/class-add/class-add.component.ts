@@ -33,7 +33,6 @@ removeSkill(i:number) {
 }
   onSaved(){
     this.condition=true;
-    console.log(this.classadd.value)
     if(this.classadd.valid){
       this.classService.classAdd(this.classadd.value).subscribe((value:any)=>{
         this.dialogRef.close(this.classadd.value);
