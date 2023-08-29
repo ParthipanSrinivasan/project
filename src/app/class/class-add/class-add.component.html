@@ -10,12 +10,22 @@
     <mat-label>First Name</mat-label>
      <input type="text"  matInput placeholder="Class Value" formControlName="value" name="value">
 </mat-form-field>
-<p class="alert alert-danger" *ngIf="condition && classadd.get('value')?.hasError('required')">
-  fill they form required
-</p>
+<div formArrayName="skills">
+  <div *ngFor="let skill of skills.controls; let i=index">
+    <div [formGroupName]="i">
+      <mat-form-field>
+        <mat-label>Add Name</mat-label>
+        <input type="text" matInput placeholder="Class Value" formControlName="skill">
+      </mat-form-field>
+      <button mat-fab color="primary" (click)="removeSkill(i)"><mat-icon>delete</mat-icon></button>
+    </div>
+  </div>
 </div>
 <div mat-dialog-action>
   <button mat-raised-button mat-dialog-close color="primary" type="submit">ADD Class</button>
   <button mat-button mat-dialog-close class="btn btn-outline-danger">close</button>
+  <button mat-raised-button color="warn" type="button" (click)="addSkills()">Add</button>
+
 </div>
- </form>
+</div>
+</form>

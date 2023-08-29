@@ -35,7 +35,6 @@ export class StudentListComponet implements OnInit {
   ngOnInit(){
     this.pagination["pageSize"]=this.pageSize;
     this.pagination["pageIndex"]=this.pageIndex;
-    console.log(this.myinputMsg)
     if(this.myinputMsg!=""){
     this.pagination["class_id"]=this.myinputMsg;
     this.studentservive.tableList(this.pagination).subscribe((value:any)=>{
