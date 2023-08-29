@@ -85,4 +85,14 @@ export class StudentService {
     })
     return obser;
   }
+  classStudentAdd(paremes:any){
+    const obser=new Observable((val:any)=>{
+     for(let i=0;i<paremes.student.length;i++){
+      this.studentrec.push(paremes.student[i])
+     }
+     val.next(this.studentrec);
+     val.complete();
+    });
+    return obser;
+  }
 }

@@ -4,6 +4,7 @@ import { FormControl, FormGroup, Validators,FormArray,FormBuilder } from '@angul
 import { Router } from '@angular/router';
 import { MatDialogRef } from '@angular/material/dialog';
 import { StudentPopComponent } from 'src/app/student/student-pop/student-pop.component';
+import { StudentService } from 'src/app/student/student.service';
 
 @Component({
   selector: 'app-class-add',
@@ -12,28 +13,41 @@ import { StudentPopComponent } from 'src/app/student/student-pop/student-pop.com
 })
 export class ClassAddComponent {
   condition:any;
-  constructor(private classService:ClassServicsService,private router:Router,private dialogRef: MatDialogRef<StudentPopComponent>,private formBuilder: FormBuilder){}
-  classadd:FormGroup=this.formBuilder.group({value:"",skills:this.formBuilder.array([])});
+  constructor(public classService:ClassServicsService,private router:Router,private dialogRef: MatDialogRef<StudentPopComponent>,private formBuilder: FormBuilder,private studentService:StudentService){}
+  classadd:FormGroup=this.formBuilder.group({value:"",student:this.formBuilder.array([])});
+  genders:any=["male","female"];
+  countryno:any=['+91',"+234","+1","+82"]
+  addclass:any;
   ngOnInit(){
-    console.log(this.skills.controls)
+    console.log(this.classService)
   }
-  get skills() : FormArray {
-    return this.classadd.get("skills") as FormArray
+  get student() : FormArray {
+    return this.classadd.get("student") as FormArray
   }
-  newSkill(): FormGroup {
+  newStudent(): FormGroup {
     return this.formBuilder.group({
-      skill: ''
+      firstname: '',
+      lastname:"",
+      age:"",
+      date:"",
+      phone:"",
+      gender:"",
+      num:"",
+      class:""
     })
   }
-  addSkills() {
-  this.skills.push(this.newSkill());
+  addStudent() {
+  this.student.push(this.newStudent());
 }
-removeSkill(i:number) {
-  this.skills.removeAt(i);
+removeStudent(i:number) {
+  this.student.removeAt(i);
 }
   onSaved(){
     this.condition=true;
     if(this.classadd.valid){
+      this.studentService.classStudentAdd(this.classadd.value).subscribe((value:any)=>{
+        console.log(value);
+      });
       this.classService.classAdd(this.classadd.value).subscribe((value:any)=>{
         this.dialogRef.close(this.classadd.value);
       })

@@ -20,7 +20,7 @@ export class ClassListComponent implements OnInit{
     });
   }
   open(){
-    this.matDialog.open(ClassAddComponent,{height:"35%",width:"30%"}
+    this.matDialog.open(ClassAddComponent,{height:"65%",width:"35%"}
     );
   }
 }
