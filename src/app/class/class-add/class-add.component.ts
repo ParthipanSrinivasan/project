@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { ClassServicsService } from '../class-servics.service';
-import { FormControl, FormGroup, Validators,FormArray,FormBuilder } from '@angular/forms';
+import { FormGroup,FormArray,FormBuilder, Validators,FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
 import { MatDialogRef } from '@angular/material/dialog';
 import { StudentPopComponent } from 'src/app/student/student-pop/student-pop.component';
 import { StudentService } from 'src/app/student/student.service';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-class-add',
@@ -13,13 +14,13 @@ import { StudentService } from 'src/app/student/student.service';
 })
 export class ClassAddComponent {
   condition:any;
-  constructor(public classService:ClassServicsService,private router:Router,private dialogRef: MatDialogRef<StudentPopComponent>,private formBuilder: FormBuilder,private studentService:StudentService){}
-  classadd:FormGroup=this.formBuilder.group({value:"",student:this.formBuilder.array([])});
+  constructor(public classservice:ClassServicsService,private router:Router,private dialogRef: MatDialogRef<StudentPopComponent>,private formBuilder: FormBuilder,private studentService:StudentService){}
+  classadd:FormGroup=this.formBuilder.group({value:new FormControl('', [Validators.required]),student:this.formBuilder.array([])});
   genders:any=["male","female"];
   countryno:any=['+91',"+234","+1","+82"]
-  addclass:any;
+  classdropdown:any
   ngOnInit(){
-    console.log(this.classService)
+    this.classMethod();
   }
   get student() : FormArray {
     return this.classadd.get("student") as FormArray
@@ -33,7 +34,7 @@ export class ClassAddComponent {
       phone:"",
       gender:"",
       num:"",
-      class:""
+      class_id:""
     })
   }
   addStudent() {
@@ -42,15 +43,32 @@ export class ClassAddComponent {
 removeStudent(i:number) {
   this.student.removeAt(i);
 }
-  onSaved(){
+onSaved(){
     this.condition=true;
     if(this.classadd.valid){
-      this.studentService.classStudentAdd(this.classadd.value).subscribe((value:any)=>{
+      const date=this.classadd.value
+      for(let i=0;i<date.student.length;i++){
+        date.student[i]["date"]=this.datePicker(date.student[i].date)
+      }
+      this.studentService.classStudentAdd(date).subscribe((value:any)=>{
         console.log(value);
       });
-      this.classService.classAdd(this.classadd.value).subscribe((value:any)=>{
+      this.classservice.classAdd(this.classadd.value).subscribe((value:any)=>{
         this.dialogRef.close(this.classadd.value);
       })
     }
+  }
+  datePicker(date:any){
+    try {
+      const myDate = moment(date,"MMM-DD-YYYY").format('YYYY-MM-DD');
+      return myDate;
+    } catch(e) {
+      return e; 
+    }
+  }
+  classMethod(){
+    this.classservice.classShow().subscribe((val:any)=>{
+      this.classdropdown=val;
+    });
   }
 }
