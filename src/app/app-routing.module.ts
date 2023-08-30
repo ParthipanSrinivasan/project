@@ -9,6 +9,7 @@ import { StudentListComponet } from './student/student-list.component';
 import { ClassAddComponent } from './class/class-add/class-add.component';
 import { ClassListComponent } from './class/class-list.component';
 import { SubjectListComponent } from './subject/subject-list.component';
+import { BoostrapComponent } from './boostrap/boostrap.component';
 
 const routes: Routes = [
   {path:"",component:DasboardComponent,
@@ -20,7 +21,8 @@ const routes: Routes = [
     {path:"teacher/list",component:TeacherListComponent},
     {path:"class/add",component:ClassAddComponent},
     {path:"class/list",component:ClassListComponent},
-    {path:"subject/list",component:SubjectListComponent}
+    {path:"subject/list",component:SubjectListComponent},
+    {path:"boostrap/page",component:BoostrapComponent}
   ]},
     {path:"login",component:LoginPageComponent},
 ];

@@ -34,6 +34,7 @@ import {MatExpansionModule} from '@angular/material/expansion';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {ClipboardModule} from '@angular/cdk/clipboard';
+import { BoostrapComponent } from './boostrap/boostrap.component';
 
 
 @NgModule({
@@ -50,6 +51,7 @@ import {ClipboardModule} from '@angular/cdk/clipboard';
     ClassAddComponent,
     SubjectListComponent,
     SubjectAddComponent,
+    BoostrapComponent,
   ],
   imports: [
     BrowserModule,
