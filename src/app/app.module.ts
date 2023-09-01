@@ -35,6 +35,7 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {ClipboardModule} from '@angular/cdk/clipboard';
 import { BoostrapComponent } from './boostrap/boostrap.component';
+import {MatStepperModule} from '@angular/material/stepper';
 
 
 @NgModule({
@@ -76,7 +77,8 @@ import { BoostrapComponent } from './boostrap/boostrap.component';
     MatExpansionModule,
     MatToolbarModule,
     MatTooltipModule,
-    ClipboardModule
+    ClipboardModule,
+    MatStepperModule
     
   
   ],
